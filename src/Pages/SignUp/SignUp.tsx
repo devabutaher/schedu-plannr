@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import GoogleSignIn from "../../GoogleSignIn/GoogleSignIn";
+import useTitle from "../../hooks/useTitle/useTitle";
 import useToken from "../../hooks/useToken/useToken";
 
 type UserSubmitForm = {
@@ -52,6 +53,8 @@ const SignUp = () => {
 
   const [createdUserEmail, setCreatedUserEmail] = useState<any>("");
   const [token] = useToken(createdUserEmail);
+
+  useTitle("Sign Up");
 
   if (token) {
     navigate(from, { replace: true });

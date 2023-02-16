@@ -1,4 +1,4 @@
-import MySchedule from "../Schedule/MySchedule/MySchedule";
+import useTitle from "../../hooks/useTitle/useTitle";
 import Contact from "./Contact/Contact";
 import Details from "./Details/Details";
 import Header from "./Header/Header";
@@ -9,6 +9,7 @@ import Shortend from "./Shortend/Shortend";
 import Sponsorship from "./Sponsorship/Sponsorship";
 
 const Home = () => {
+  useTitle("Home");
   return (
     <div className="max-w-[1400px] mx-auto overflow-hidden">
       <Header></Header>

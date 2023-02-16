@@ -1,7 +1,9 @@
+import useTitle from "../../hooks/useTitle/useTitle";
 import AllUserTables from "./AllUserTables/AllUserTables";
 
 
 const AllUser = () => {
+  useTitle("Admin & Users")
 
   
   return (

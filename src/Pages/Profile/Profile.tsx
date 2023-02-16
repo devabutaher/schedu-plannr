@@ -3,17 +3,18 @@ import { FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AddNote from "../../AddNote/AddNote";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const Profile = () => {
   const { user }: any = useContext(AuthContext);
   const [userInfo, setData] = useState([]);
-  // console.log(userInfo);
+
+  useTitle("Profile");
+
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (
-        await fetch(
-          `http://localhost:5000/user?email=${user?.email}`
-        )
+        await fetch(`http://localhost:5000/user?email=${user?.email}`)
       ).json();
       setData(data);
     };

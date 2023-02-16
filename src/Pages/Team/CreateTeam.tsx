@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 interface dataProps {
   name: string;
@@ -86,6 +87,8 @@ const CreateTeam = () => {
         toast.success("Team Created Successful");
       });
   };
+
+  useTitle("Create Team");
 
   return (
     <>
