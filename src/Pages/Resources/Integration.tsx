@@ -150,7 +150,7 @@ const Integration = () => {
                 </Link>
               </div>
             </div>
-            <div className="mt-12 md:mt-0 lg:absolute -right-10 lg:w-7/12">
+            <div className="mt-12 md:mt-0 lg:absolute -right-14 lg:w-7/12">
               <div className="relative w-full">
                 <img
                   src="https://i.ibb.co/GPR0PYQ/MJB-Automate-tasks.png"

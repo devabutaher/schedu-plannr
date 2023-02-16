@@ -35,6 +35,7 @@ import Zoom from "../../Pages/Resources/Zoom";
 import Meet from "../../Pages/Resources/Meet";
 import MsTeam from "../../Pages/Resources/MsTeam";
 import ScheduleMeetingDetails from "../../Pages/Resources/ScheduleMeetingDetails";
+import SecurityDetails from "../../Pages/Resources/SecurityDetails";
 
 export const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
       {
         path: "/scheduleMeetingDetails",
         element: <ScheduleMeetingDetails/>
+      },
+      {
+        path: "/securityDetails",
+        element: <SecurityDetails/>
       },
       {
         path: "blogs/blogPost/:id",
