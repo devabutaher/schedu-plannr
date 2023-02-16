@@ -1,5 +1,6 @@
 import React from "react";
 import Integration from "./Integration";
+import ScheduleMeeting from "./ScheduleMeeting";
 import Security from "./Security";
 
 const Resources = () => {
@@ -31,7 +32,8 @@ const Resources = () => {
       </section>
       <hr />
       <section>
-        <Integration/> <hr />
+        <Integration/>
+        <ScheduleMeeting/>
         <Security/>
       </section>
     </div>
