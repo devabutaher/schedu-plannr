@@ -8,13 +8,13 @@ const MyNotes = () => {
   const { data: notes = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/notes");
+      const res = await fetch("https://scheduplannr-server.vercel.app/notes");
       const data = await res.json();
       return data;
     },
   });
   const handleRemove = (id: any) => {
-    fetch(`http://localhost:5000/users/notes/${id}`, {
+    fetch(`https://scheduplannr-server.vercel.app/users/notes/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

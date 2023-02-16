@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../components/Contexts/AuthProvider/AuthProvider";
@@ -19,8 +19,8 @@ const GoogleSignIn = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result: any) => {
-        const name = result?.user?.email;
-        const email = result?.user?.displayName;
+        const name = result?.user?.displayName;
+        const email = result?.user?.email;
         const lastName = "";
         const currentAddress = "";
         const permanentAddress = "";
@@ -29,11 +29,9 @@ const GoogleSignIn = () => {
         const birthDate = "";
         const image = "";
         const role = "";
-        toast.success("Google Sign Up Successfully");
-
-        saveUser(
-          email,
+        saveUserToDatabase(
           name,
+          email,
           lastName,
           currentAddress,
           permanentAddress,
@@ -43,15 +41,13 @@ const GoogleSignIn = () => {
           image,
           role
         );
-
-        setCreatedUserEmail(result.user.email);
       })
       .catch((err: any) => {
         console.log(err);
       });
   };
 
-  const saveUser = (
+  const saveUserToDatabase = (
     name: string,
     email: string,
     lastName: string,
@@ -61,7 +57,6 @@ const GoogleSignIn = () => {
     gender: string,
     birthDate: string,
     image: string,
-
     role: string
   ) => {
     const user = {
@@ -87,7 +82,7 @@ const GoogleSignIn = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setCreatedUserEmail(user.email);
+        setCreatedUserEmail(email);
       });
   };
 

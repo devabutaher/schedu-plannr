@@ -7,13 +7,13 @@ import PaymentTerms from "./PaymentTerms";
 
 const CheckoutForm = ({ membership }: any) => {
   const { user }: any = useContext(AuthContext);
-
+console.log(user)
   const [userInfo, setData] = useState([]);
   useEffect(() => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `http://localhost:5000/user?email=${user?.email}`
+          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
         )
       ).json();
       setData(data);
@@ -27,15 +27,21 @@ const CheckoutForm = ({ membership }: any) => {
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
+  const [amount, setAmount] = useState({})
   const stripe = useStripe();
   const elements = useElements();
   const { cost, status } = membership;
-
+// console.log(success)
+const userPayment = {
+  email: user?.email,
+  amount
+}
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://scheduplannr-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify({ cost }),
     })
@@ -74,8 +80,8 @@ const CheckoutForm = ({ membership }: any) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: user.displayName,
-            email: user.email,
+            name: user?.displayName,
+            email: user?.email,
           },
         },
       });
@@ -86,7 +92,21 @@ const CheckoutForm = ({ membership }: any) => {
     if (paymentIntent.status == "succeeded") {
       setSuccess("Congrats! your payment completed");
       setTransactionId(paymentIntent.id);
+      
+      fetch("http://localhost:5000/paymentMessage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({paymentIntent, email: user?.email, name: user?.displayName}),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+      
     }
+    // setAmount(paymentIntent)
     console.log("paymentIntent", paymentIntent);
   };
 
@@ -95,6 +115,10 @@ const CheckoutForm = ({ membership }: any) => {
     content: () => componentRef.current,
     documentTitle: "emp-data",
   });
+
+  
+ 
+  
   return (
     <>
       <form onSubmit={handleSubmit}>

@@ -100,6 +100,7 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
     logOut,
     resetPassword,
     loading,
+    setLoading,
     slot,
     setSlot,
     slotPm,

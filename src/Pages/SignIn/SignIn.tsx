@@ -63,8 +63,8 @@ const SignIn = () => {
   return (
     <>
       <div className="flex justify-center py-20">
-        <div className="rounded-3xl border bg-gray-50 w-[30rem] flex flex-col gap-12 p-12">
-          <h3 className="text-2xl font-semibold text-gray-700 text-center">
+        <div className="rounded-3xl border bg-transparent w-[30rem] flex flex-col gap-12 p-12">
+          <h3 className="text-2xl text-primary font-semibold text-center">
             LogIn To Your Account
           </h3>
 

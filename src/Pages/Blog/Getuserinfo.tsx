@@ -11,7 +11,7 @@ const Getuserinfo = () => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `http://localhost:5000/user?email=${user?.email}`
+          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
         )
       ).json();
 

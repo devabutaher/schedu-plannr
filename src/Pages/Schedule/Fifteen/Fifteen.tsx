@@ -2,8 +2,6 @@ import { useContext, useState } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
-import FifteenAmChild from "./FifteenAmChild";
-import FifteenPmChild from "./FifteenPmChild";
 
 const Fifteen = () => {
   const { setSlot }: any = useContext(AuthContext);
@@ -15,7 +13,7 @@ const Fifteen = () => {
     queryKey: ["fifteenMinsAM"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:5000/fifteenMinsAM"
+        "https://scheduplannr-server.vercel.app/fifteenMinsAM"
       );
       const data = res.json();
       return data;
@@ -33,7 +31,7 @@ const Fifteen = () => {
     queryKey: ["fifteenMinsPM"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:5000/fifteenMinsPM"
+        "https://scheduplannr-server.vercel.app/fifteenMinsPM"
       );
       const data = res.json();
       return data;
@@ -41,8 +39,12 @@ const Fifteen = () => {
   });
 
   //state for PM slots active style
-  const [colorsPm, setColorsPm] = useState(Array(fifteenMinsAm && fifteenMinsAm[0]?.slots.length).fill('#0098da'));
-  const [colorsPmm, setColorsPmm] = useState(Array(fifteenMinsAm && fifteenMinsAm[0]?.slots.length).fill('#fff'));
+  const [colorsPm, setColorsPm] = useState(
+    Array(fifteenMinsAm && fifteenMinsAm[0]?.slots.length).fill("#0098da")
+  );
+  const [colorsPmm, setColorsPmm] = useState(
+    Array(fifteenMinsAm && fifteenMinsAm[0]?.slots.length).fill("#fff")
+  );
 
   //for AM 
   // const handleChange = (index: number) => {
@@ -59,24 +61,28 @@ const Fifteen = () => {
   //   setSlot(fifteenMinsAm[0].slots[index])
   // };
 
-  //for PM 
+  //for PM
   const handleChangePm = (index: number) => {
     setColorsPm((colors) => {
       const newColors = [...colors];
-      newColors[index] = colors[index] === '#0098da' ? 'white' : '#0098da';
+      newColors[index] = colors[index] === "#0098da" ? "white" : "#0098da";
       return newColors;
     });
     setColorsPmm((colors) => {
       const newColors = [...colors];
-      newColors[index] = colors[index] === 'white' ? '#0098da' : 'white';
+      newColors[index] = colors[index] === "white" ? "#0098da" : "white";
       return newColors;
     });
-    setSlot(fifteenMinsAm[0].slots[index])
+    setSlot(fifteenMinsAm[0].slots[index]);
   };
 
   //loading
   if (isLoading) {
-    return <div className="w-[33rem] flex items-center justify-center"><Loading /></div>;
+    return (
+      <div className="w-[33rem] flex items-center justify-center">
+        <Loading />
+      </div>
+    );
   }
 
   const handleAm = (slot: any) => {
@@ -93,10 +99,9 @@ const Fifteen = () => {
   return (
     <div>
       <div className="h-[25rem] lg:py-0 py-12 px-2">
-
-
-        <h1 className="text-center text-2xl mb-4 text-primary -mt-2">Please Select A Time Slot</h1>
-
+        <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
+          Please Select A Time Slot
+        </h1>
 
         <div className="flex justify-center gap-4">
           <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">

@@ -9,7 +9,9 @@ const SinglePost = () => {
   const { data: blogs = [id], isLoading } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/blogPost/${id}`);
+      const res = await fetch(
+        `https://scheduplannr-server.vercel.app/blogPost/${id}`
+      );
       const data = await res.json();
       console.log(blogs);
       return data;

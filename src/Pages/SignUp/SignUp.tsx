@@ -116,7 +116,7 @@ const SignUp = () => {
       birthDate,
       image,
     };
-    fetch(`http://localhost:5000/users`, {
+    fetch(`https://scheduplannr-server.vercel.app/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -134,8 +134,8 @@ const SignUp = () => {
   return (
     <>
       <div className="flex justify-center py-20">
-        <div className="rounded-3xl border bg-gray-50 w-[30rem] flex flex-col gap-12 p-12">
-          <h3 className="text-2xl font-semibold text-gray-700 text-center">
+        <div className="rounded-3xl border bg-transparent w-[30rem] flex flex-col gap-12 p-12">
+          <h3 className="text-2xl font-semibold text-primary text-center">
             Register To Your Account
           </h3>
           <GoogleSignIn />

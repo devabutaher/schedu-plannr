@@ -51,10 +51,11 @@ const EditSchedule = ({
       description,
     };
 
-    fetch(`http://localhost:5000/createSchedule/${_id}`, {
+    fetch(`https://scheduplannr-server.vercel.app/createSchedule/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(info),
     })

@@ -14,7 +14,7 @@ const Sponsorship = () => {
     return (
         <>
 
-            <div className="flex justify-center py-20">
+            <div className="flex justify-center py-20" data-aos="fade-up">
                 <div className="container m-auto px-6">
                     <h2 className="text-center text-2xl font-bold md:text-4xl">
                         Our <span className="text-primary">Sponsorship</span></h2>

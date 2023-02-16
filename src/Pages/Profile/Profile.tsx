@@ -25,7 +25,7 @@ const Profile = () => {
     <>
       {userInfo?.map((usr: any) => {
         const {
-          name, 
+          name,
           lastName,
           currentAddress,
           permanentAddress,

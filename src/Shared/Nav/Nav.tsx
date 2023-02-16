@@ -61,8 +61,8 @@ const Nav = () => {
             </Link>
           </li>
           <li className="li-style">
-            <Link to={"/supports"} className="noo-hover link-style">
-              Support
+            <Link to={"/resources"} className="noo-hover link-style">
+            Resources
             </Link>
           </li>
           <li className="li-style">
@@ -76,7 +76,6 @@ const Nav = () => {
               Blog
             </Link>
           </li>
-          
 
           <div className=" flex items-center mx-2" onClick={handleDark}>
             {dark ? (
@@ -135,8 +134,8 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link to={"/supports"} className=" hover:bg-secondary pr-32">
-                Support
+              <Link to={"/resources"} className="hover:bg-secondary pr-32">
+                Resources
               </Link>
             </li>
             <li>

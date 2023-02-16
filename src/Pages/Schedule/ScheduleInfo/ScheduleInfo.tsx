@@ -49,10 +49,11 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       slotPm,
     };
 
-    fetch("http://localhost:5000/createSchedule", {
+    fetch("https://scheduplannr-server.vercel.app/createSchedule", {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(info),
     })
@@ -63,6 +64,26 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
           navigate("/dashboard/mySchedule");
         } else {
           toast.error("Schedule Created Failed");
+        }
+      })
+      .catch((error) => console.error(error));
+
+    fetch("https://scheduplannr-server.vercel.app/scheduleCreate", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(info),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          console.log(data.acknowledged);
+          // toast.success("Schedule Created Successfully");
+          // navigate("/dashboard/mySchedule");
+        } else {
+          // toast.error("Schedule Created Failed");
         }
       })
       .catch((error) => console.error(error));

@@ -163,7 +163,6 @@ const Availability = () => {
                 </div>
             </form>
         </div>
-    )
-}
-
+    );
+};
 export default Availability;
