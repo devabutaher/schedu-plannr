@@ -6,7 +6,7 @@ const Security = () => {
     <div className="max-w-[1400px] mx-auto overflow-hidden my-32">
       <section className="grid grid-cols-1 md:grid-cols-2 items-center">
         <div className="mx-auto max-w-xl text-center sm:text-left">
-          <div>
+          <div data-aos="flip-left">
             <img
               src="https://www.pngmart.com/files/7/Security-PNG-Transparent-Picture.png"
               alt=""
@@ -61,7 +61,7 @@ const Security = () => {
             </Link>
           </div>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <img
             src="https://pro2-bar-s3-cdn-cf.myportfolio.com/93bea8ef802a988ed8ab44889dc82b83/13d79c62-bf64-42a5-b1e0-3bba1acf8f9b_rw_1200.gif?h=eec2d9f16781bc52a9dd1a85db0c57ec"
             alt=""
