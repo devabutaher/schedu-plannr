@@ -13,15 +13,16 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const MySchedule = () => {
 
-  const { user }: any = useContext(AuthContext);
-
+  const { user }: any = useContext(AuthContext)
   const [checked, setChecked] = useState(true)
+  useTitle("My Schedule");
 
   const {
     data: mySchedule,
@@ -54,9 +55,8 @@ const MySchedule = () => {
           method: "DELETE",
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          }
+          },
         })
-
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -100,6 +100,7 @@ const MySchedule = () => {
             link,
             name,
             slot,
+            slotPm,
             organization,
             _id,
             description,
@@ -156,7 +157,8 @@ const MySchedule = () => {
                     <p className="">Host name: {name}</p>
                     <p className="">Organization: {organization}</p>
                     <p className="">Location: {location}</p>
-                    <p className="">Meeting time: {slot}</p>
+                    {slot && <p className="">Meeting time: {slot}</p>}
+                    {slotPm && <p className="">Meeting time: {slotPm}</p>}
                   </div>
                 </div>
                 <div className="flex justify-between items-center">

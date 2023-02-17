@@ -32,8 +32,8 @@ const AllUserTables: React.FC = () => {
   });
 
   useEffect(() => {
-    const result = userInfo?.filter((user: { name: string }) => {
-      return user?.name?.toLowerCase()?.match(search?.toLowerCase());
+    const result = userInfo?.filter((user: { email: string }) => {
+      return user?.email?.toLowerCase()?.match(search?.toLowerCase());
     });
     setFilterUser(result);
   }, [userInfo, search]);

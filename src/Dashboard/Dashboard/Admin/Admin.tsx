@@ -14,6 +14,9 @@ const Admin = () => {
   const handleMakeAdmin = (id: number) => {
     fetch(`https://scheduplannr-server.vercel.app/user/admin/${id}`, {
       method: "PUT",
+      headers:{
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      }
     })
       .then((res) => res.json())
       .then((data) => {

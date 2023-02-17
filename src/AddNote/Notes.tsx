@@ -75,7 +75,7 @@ const Notes = () => {
                   htmlFor="my-modal-3"
                   className="flex items-center justify-between"
                 >
-                  <div className="flex md:items-center justify-between hover:dark:bg-gray-900 hover:text-white border p-4 overflow-hidden rounded-xl lg:p-6">
+                  <div className="flex md:items-center justify-between  w-full hover:dark:bg-gray-900 hover:text-white border p-4 overflow-hidden rounded-xl lg:p-6">
                     <div className="">
                       <h3 className="mb-5 ml-8 font-semibold md:col-start-2 md:col-span-4 md:ml-0 xl:col-start-3 xl:col-span-9 text-xl">
                         {note.title}
@@ -88,13 +88,14 @@ const Notes = () => {
                         )}
                       </p>
                     </div>
-                    <div className="flex md:items-center text-lg justify-end">
+                    
+                  </div>
+                  <div className="flex md:items-center text-lg justify-end">
                       <RiDeleteBin6Line
                         onClick={() => handleDelete(note._id)}
                         className="text-3xl ml-8 hover:text-red-700 cursor-pointer"
                       />
                     </div>
-                  </div>
                 </label>
               </li>
               <input type="checkbox" id="my-modal-3" className="modal-toggle" />

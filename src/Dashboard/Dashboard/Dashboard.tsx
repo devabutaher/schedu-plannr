@@ -1,6 +1,5 @@
-import { FiLogOut, FiSettings } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import { RiLoginCircleLine, RiAdminLine } from "react-icons/ri";
-import { IoCreateOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineFolderAdd, AiOutlineHome } from "react-icons/ai";
 import { SiAmazonpay } from "react-icons/si";
@@ -17,7 +16,6 @@ const Dashboard = () => {
   const { user, logOut }: any = useContext(AuthContext);
 
   const [isAdmin] = useAdmin(user?.email);
-  console.log(isAdmin);
 
   const signOut = () => {
     logOut()
@@ -153,37 +151,19 @@ const Dashboard = () => {
                   </li>
                   {isAdmin && (
                     <>
-                      <li className="dropdown dropdown-bottom">
+                      <li>
                         <Link
-                          to={"#"}
+                          to="/dashboard/allUser"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <RiAdminLine className="w-6 h-6" />
                           </span>
-
-                          <div className="">
-                            <label
-                              tabIndex={0}
-                              className="dropdown dropdown-bottom dropdown-end m-1"
-                            >
-                              {" "}
-                              <span className="ml-2 text-sm tracking-wide truncate">
-                                Admin
-                              </span>
-                            </label>
-                            <ul
-                              tabIndex={0}
-                              className="dropdown-content menu p-2 shadow bg-gray-200 text-gray-900 rounded-box w-52"
-                            >
-                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
-                                <Link to={"/dashboard/allUser"}>All User</Link>
-                              </li>
-                              <li className="focus:outline-none hover:bg-primary  hover:text-white border-l-4 border-transparent hover:border-blue-500">
-                                <Link to={""}>Admin List</Link>
-                              </li>
-                            </ul>
-                          </div>
+                          <span className="ml-2 text-sm tracking-wide truncate">
+                            <span className="mr-1">Admin</span>
+                            <span className="mr-1">/</span>
+                            <span>Users</span>
+                          </span>
                         </Link>
                       </li>
                     </>
@@ -250,7 +230,10 @@ const Dashboard = () => {
                     )}
                   </div>
 
-                  <div className=" flex items-center mx-4 mb-7 lg:mb-0 cursor-pointer" onClick={handleDark}>
+                  <div
+                    className=" flex items-center mx-4 mb-7 lg:mb-0 cursor-pointer"
+                    onClick={handleDark}
+                  >
                     {dark ? (
                       <BsSun className="h-6 w-6" />
                     ) : (

@@ -71,7 +71,6 @@ const DetailsPage = ({ singleUser }: any) => {
         if (imgData.success) {
           const userData = {
             name,
-            email,
             lastName,
             currentAddress,
             permanentAddress,
