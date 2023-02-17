@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useTitle from '../../../hooks/useTitle/useTitle';
 
 const arr = [
     "Option 4", "Option 5", "Option 6"

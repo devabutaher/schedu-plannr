@@ -1,9 +1,11 @@
 import React from "react";
+import useTitle from "../../hooks/useTitle/useTitle";
 import Integration from "./Integration";
 import ScheduleMeeting from "./ScheduleMeeting";
 import Security from "./Security";
 
 const Resources = () => {
+  useTitle("Resources")
   return (
     <div className="max-w-[1400px] mx-auto overflow-hidden">
       <section className="my-10">

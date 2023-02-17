@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
+import useTitle from "../../../hooks/useTitle/useTitle";
 
 type UserSubmitForm = {
   sunStart: string;
@@ -9,6 +10,8 @@ type UserSubmitForm = {
 
 const Availability = () => {
   const [availabilityList, setAvailabilityList] = useState([]);
+
+  useTitle("Availability");
 
   const {
     data = [],

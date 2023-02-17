@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import Loading from "../../Shared/Loading/Loading";
 interface dataProps {
   name: string;
@@ -90,6 +91,9 @@ const AddBlog = ({ singleUser }: any) => {
         }
       });
   };
+
+  useTitle("Add Blog")
+
   if (isLoading) {
     return <Loading />;
   }

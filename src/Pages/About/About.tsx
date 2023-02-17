@@ -2,8 +2,10 @@ import React from "react";
 import "./About.css";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const About = () => {
+  useTitle("About");
   return (
     <div className=" max-w-[1300px] mx-auto overflow-hidden">
       <section className="text-center mb-20 pt-20">
