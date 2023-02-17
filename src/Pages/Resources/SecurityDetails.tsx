@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineCheck } from "react-icons/ai";
+import { BsShieldCheck } from "react-icons/bs";
 
 const SecurityDetails = () => {
   return (
@@ -38,7 +38,8 @@ const SecurityDetails = () => {
               <div className="mb-1">
                 <img
                   src="https://baytechrecovery.com/wp-content/uploads/2021/05/security_proffesional_services_KWM_DOTS.gif"
-                  alt="" className="md:w-3/4"
+                  alt=""
+                  className="md:w-3/4"
                 />
               </div>
               <div className=" p-4 overflow-hidden rounded-xl">
@@ -46,7 +47,7 @@ const SecurityDetails = () => {
                   Data security
                 </h3>
                 <div className="ml-8 md:ml-0 flex gap-10">
-                  <AiOutlineCheck className="w-16 h-16" />
+                  <BsShieldCheck className="w-16 h-16" />
                   <p>
                     Customer data is managed and stored using industry-standard
                     database technologies. All data and backups are encrypted at
@@ -56,7 +57,7 @@ const SecurityDetails = () => {
                   </p>
                 </div>
                 <div className="ml-8 md:ml-0 flex gap-10 mt-5">
-                  <AiOutlineCheck className="w-16 h-16" />
+                  <BsShieldCheck className="w-16 h-16" />
                   <p>
                     Our calendar integrations use secure server to server
                     authentication protocols. Official APIs are always used to
@@ -77,7 +78,8 @@ const SecurityDetails = () => {
               <div className="mb-1">
                 <img
                   src="https://www.asdcybersecurity.in/wp-content/uploads/2022/03/21150-illustration-cybersecurity-as-a-service-2-1.gif"
-                  alt="" className="md:w-3/4"
+                  alt=""
+                  className="md:w-3/4"
                 />
               </div>
               <div className=" p-4 overflow-hidden rounded-xl">
@@ -85,7 +87,7 @@ const SecurityDetails = () => {
                   Software security
                 </h3>
                 <div className="ml-8 md:ml-0 flex gap-10">
-                  <AiOutlineCheck className="w-16 h-16" />
+                  <BsShieldCheck className="w-16 h-16" />
                   <p>
                     We follow a Secure Software Development Lifecycle (SDLC)
                     model, which incorporates security and privacy by design,
@@ -94,7 +96,7 @@ const SecurityDetails = () => {
                   </p>
                 </div>
                 <div className="ml-8 md:ml-0 flex gap-10 mt-5">
-                  <AiOutlineCheck className="w-16 h-16" />
+                  <BsShieldCheck className="w-10 h-10" />
                   <p>
                     We perform numerous automated and manual vulnerability tests
                     both prior to, and post-release, in order to maintain a high
@@ -102,7 +104,7 @@ const SecurityDetails = () => {
                   </p>
                 </div>
                 <div className="ml-8 md:ml-0 flex gap-10 mt-5">
-                  <AiOutlineCheck className="w-16 h-16" />
+                  <BsShieldCheck className="w-16 h-16" />
                   <p>
                     Our project managers, developers, and quality assurance
                     testers are regularly trained on security issues, trends,
@@ -112,7 +114,7 @@ const SecurityDetails = () => {
                   </p>
                 </div>
                 <div className="ml-8 md:ml-0 flex gap-10 mt-5">
-                  <AiOutlineCheck className="w-16 h-16" />
+                  <BsShieldCheck className="w-16 h-16" />
                   <p>
                     Our products provide advanced security tools, including
                     two-factor authentication, account lockout, password

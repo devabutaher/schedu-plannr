@@ -104,7 +104,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             <div>
               <label
                 htmlFor="name"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block  text-sm sm:text-base mb-2"
               >
                 Name
               </label>
@@ -115,7 +115,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                 value={user?.displayName}
                 id="name"
                 name="name"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.name && (
                 <p className="text-sm text-red-600 mt-2">
@@ -127,7 +127,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             <div>
               <label
                 htmlFor="email"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block  text-sm sm:text-base mb-2"
               >
                 Email
               </label>
@@ -142,7 +142,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                 value={user?.email}
                 id="email"
                 name="email"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-2">
@@ -154,7 +154,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             <div>
               <label
                 htmlFor="phone"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block  text-sm sm:text-base mb-2"
               >
                 Phone Number
               </label>
@@ -165,7 +165,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                 id="phone"
                 name="phone"
                 type="text"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.phone && (
                 <p className="text-sm text-red-600 mt-2">
@@ -177,7 +177,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             <div>
               <label
                 htmlFor="organization"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block  text-sm sm:text-base mb-2"
               >
                 Organization Name
               </label>
@@ -187,7 +187,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                 })}
                 id="organization"
                 name="organization"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.organization && (
                 <p className="text-sm text-red-600 mt-2">
@@ -199,7 +199,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             <div className="sm:col-span-2">
               <label
                 htmlFor="title"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block  text-sm sm:text-base mb-2"
               >
                 Schedule Title
               </label>
@@ -209,7 +209,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                 })}
                 id="title"
                 name="title"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.title && (
                 <p className="text-sm text-red-600 mt-2">
@@ -221,7 +221,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             <div className="sm:col-span-2">
               <label
                 htmlFor="location"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block  text-sm sm:text-base mb-2"
               >
                 Schedule Location
               </label>
@@ -262,7 +262,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                   required: "Please Select A Location",
                 })}
                 id="location"
-                className="select w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="select w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               >
                 <option className="text-xl" disabled>
                   Select Your Location
@@ -284,7 +284,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             <div className="sm:col-span-2">
               <label
                 htmlFor="link"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block  text-sm sm:text-base mb-2"
               >
                 Schedule Link
               </label>
@@ -294,7 +294,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                 })}
                 id="link"
                 name="link"
-                className="w-full bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               />
               {errors.link && (
                 <p className="text-sm text-red-600 mt-2">
@@ -306,7 +306,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             <div className="sm:col-span-2">
               <label
                 htmlFor="description"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2"
+                className="inline-block  text-sm sm:text-base mb-2"
               >
                 Description
               </label>
@@ -315,7 +315,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                 defaultValue="Thanks for joining the meeting on time"
                 id="description"
                 name="description"
-                className="w-full h-40 bg-gray-200 text-gray-800 border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+                className="w-full h-40 bg-transparent  border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
               ></textarea>
             </div>
             <div></div>
