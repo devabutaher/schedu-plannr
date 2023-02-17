@@ -5,7 +5,7 @@ import Loading from "../../../Shared/Loading/Loading";
 import "./ThirtyMins.css";
 
 const ThirtyMins = () => {
-  const { setSlot }: any = useContext(AuthContext);
+  const { setSlot, setSlotPm }: any = useContext(AuthContext);
 
   const [selectedAmSlots, setSelectedAmSlots] = useState<any>([])
   const [selectedPmSlots, setSelectedPmSlots] = useState<any>([])
@@ -43,6 +43,7 @@ const ThirtyMins = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
+    setSlot(slot);
   }
 
   //For Pm
@@ -54,6 +55,7 @@ const ThirtyMins = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
+    setSlotPm(slot);
   }
 
 
@@ -94,7 +96,8 @@ const ThirtyMins = () => {
                 thirtyMinsPm[0].slots.map((thirtyPm: any, i: number) => (
                   <span
                     key={i}
-                    className={`cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring`}
+                    className={`cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium focus:outline-none focus:ring ${selectedPmSlots.indexOf(thirtyPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                    onClick={() => handlePm(thirtyPm)}
                   >
                     {thirtyPm}
                   </span>

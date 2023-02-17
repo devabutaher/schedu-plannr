@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 import ThirtyMins from '../ThirtyMins/ThirtyMins';
 
 const TimeAndDate = ({ handleForm, setSlot, onChange, value }: any) => {
-  console.log(value?.toString().slice(0, 15));
+  // console.log(value?.toString().slice(0, 15));
   return (
     <>
       <form onSubmit={handleForm}>

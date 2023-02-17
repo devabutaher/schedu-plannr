@@ -4,7 +4,7 @@ import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvi
 import Loading from "../../../Shared/Loading/Loading";
 
 const Fifteen = () => {
-  const { setSlot }: any = useContext(AuthContext);
+  const { setSlot, setSlotPm }: any = useContext(AuthContext);
 
   const [selectedAmSlots, setSelectedAmSlots] = useState<any>([])
   const [selectedPmSlots, setSelectedPmSlots] = useState<any>([])
@@ -42,6 +42,7 @@ const Fifteen = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
+    setSlot(slot);
   }
 
   //For Pm
@@ -53,6 +54,7 @@ const Fifteen = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
+    setSlotPm(slot);
   }
 
   //loading

@@ -4,7 +4,7 @@ import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvi
 import Loading from "../../../Shared/Loading/Loading";
 
 const SixtyMins = () => {
-  const { setSlot }: any = useContext(AuthContext);
+  const { setSlot, setSlotPm }: any = useContext(AuthContext);
 
   const [selectedAmSlots, setSelectedAmSlots] = useState<any>([])
   const [selectedPmSlots, setSelectedPmSlots] = useState<any>([])
@@ -42,6 +42,7 @@ const SixtyMins = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
+    setSlot(slot);
   }
 
   //For Pm
@@ -53,6 +54,7 @@ const SixtyMins = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
+    setSlotPm(slot);
   }
 
   //loading
@@ -90,8 +92,8 @@ const SixtyMins = () => {
                 sixtyMinsPm[0].slots.map((sixtyPm: any, i: number) => (
                   <span
                     key={i}
-                    className={`cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium focus:outline-none focus:ring active:bg-primary ${selectedAmSlots.indexOf(sixtyPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
-                    onClick={() => handleAm(sixtyPm)}
+                    className={`cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium focus:outline-none focus:ring active:bg-primary ${selectedPmSlots.indexOf(sixtyPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                    onClick={() => handlePm(sixtyPm)}
                   >
                     {sixtyPm}
                   </span>
