@@ -7,6 +7,7 @@ const Fifteen = () => {
   const { setSlot }: any = useContext(AuthContext);
 
   const [selectedAmSlots, setSelectedAmSlots] = useState<any>([])
+  const [selectedPmSlots, setSelectedPmSlots] = useState<any>([])
 
   //fetch data from AM slots
   const { data: fifteenMinsAm, isLoading } = useQuery({
@@ -20,12 +21,6 @@ const Fifteen = () => {
     },
   });
 
-
-  //state for AM slots active style
-  // const [colors, setColors] = useState(Array(fifteenMinsAm && fifteenMinsAm[0]?.slots.length).fill('#0098da'));
-  // const [colorus, setColorus] = useState(Array(fifteenMinsAm && fifteenMinsAm[0]?.slots.length).fill('#fff'));
-
-  // console.log({ colors, colorus });
   //fetch data from PM slots
   const { data: fifteenMinsPm } = useQuery({
     queryKey: ["fifteenMinsPM"],
@@ -38,43 +33,27 @@ const Fifteen = () => {
     },
   });
 
-  //state for PM slots active style
-  const [colorsPm, setColorsPm] = useState(
-    Array(fifteenMinsAm && fifteenMinsAm[0]?.slots.length).fill("#0098da")
-  );
-  const [colorsPmm, setColorsPmm] = useState(
-    Array(fifteenMinsAm && fifteenMinsAm[0]?.slots.length).fill("#fff")
-  );
+  // For Am
+  const handleAm = (slot: any) => {
+    if (selectedAmSlots.indexOf(slot) === -1) {
+      setSelectedAmSlots((slots: any) => [...slots, slot])
+    } else {
+      setSelectedAmSlots((slots: any) => {
+        return slots.filter((sl: any) => sl !== slot)
+      })
+    }
+  }
 
-  //for AM 
-  // const handleChange = (index: number) => {
-  //   setColors((colors) => {
-  //     const newColors = [...colors];
-  //     newColors[index] = colors[index] === '#0098da' ? 'white' : '#0098da';
-  //     return newColors;
-  //   });
-  //   setColorus((colors) => {
-  //     const newColors = [...colors];
-  //     newColors[index] = colors[index] === 'white' ? '#0098da' : 'white';
-  //     return newColors;
-  //   });
-  //   setSlot(fifteenMinsAm[0].slots[index])
-  // };
-
-  //for PM
-  const handleChangePm = (index: number) => {
-    setColorsPm((colors) => {
-      const newColors = [...colors];
-      newColors[index] = colors[index] === "#0098da" ? "white" : "#0098da";
-      return newColors;
-    });
-    setColorsPmm((colors) => {
-      const newColors = [...colors];
-      newColors[index] = colors[index] === "white" ? "#0098da" : "white";
-      return newColors;
-    });
-    setSlot(fifteenMinsAm[0].slots[index]);
-  };
+  //For Pm
+  const handlePm = (slot: any) => {
+    if (selectedPmSlots.indexOf(slot) === -1) {
+      setSelectedPmSlots((slots: any) => [...slots, slot])
+    } else {
+      setSelectedPmSlots((slots: any) => {
+        return slots.filter((sl: any) => sl !== slot)
+      })
+    }
+  }
 
   //loading
   if (isLoading) {
@@ -83,17 +62,6 @@ const Fifteen = () => {
         <Loading />
       </div>
     );
-  }
-
-  const handleAm = (slot: any) => {
-    console.log({ slot });
-    if (selectedAmSlots.indexOf(slot) === -1) {
-      setSelectedAmSlots((slots: any) => [...slots, slot])
-    } else {
-      setSelectedAmSlots((slots: any) => {
-        return slots.filter((sl: any) => sl !== slot)
-      })
-    }
   }
 
   return (
@@ -108,8 +76,6 @@ const Fifteen = () => {
             {fifteenMinsAm &&
               fifteenMinsAm[0].slots.map((fifteenAm: any, i: number) => (
                 <span
-                  // onClick={() => handleChange(i)}
-                  // style={{ backgroundColor: colors[i], color: colorus[i] }}
                   key={i}
                   className={`cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium focus:outline-none focus:ring ${selectedAmSlots.indexOf(fifteenAm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
                   onClick={() => handleAm(fifteenAm)}
@@ -122,10 +88,9 @@ const Fifteen = () => {
             {fifteenMinsPm &&
               fifteenMinsPm[0].slots.map((fifteenPm: any, i: number) => (
                 <span
-                  onClick={() => handleChangePm(i)}
-                  style={{ backgroundColor: colorsPm[i], color: colorsPmm[i] }}
                   key={i}
-                  className="cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring"
+                  className={`cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium focus:outline-none focus:ring ${selectedPmSlots.indexOf(fifteenPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                  onClick={() => handlePm(fifteenPm)}
                 >
                   {fifteenPm}
                 </span>

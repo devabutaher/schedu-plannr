@@ -6,6 +6,9 @@ import Loading from "../../../Shared/Loading/Loading";
 const SixtyMins = () => {
   const { setSlot }: any = useContext(AuthContext);
 
+  const [selectedAmSlots, setSelectedAmSlots] = useState<any>([])
+  const [selectedPmSlots, setSelectedPmSlots] = useState<any>([])
+
   //fetch data from AM slots
   const { data: sixtyMinsAm, isLoading } = useQuery({
     queryKey: ["sixtyMinsAm"],
@@ -17,14 +20,6 @@ const SixtyMins = () => {
       return data;
     },
   });
-
-  //state for AM slots active style
-  const [colors, setColors] = useState(
-    Array(sixtyMinsAm && sixtyMinsAm[0]?.slots.length).fill("#0098da")
-  );
-  const [colorus, setColorus] = useState(
-    Array(sixtyMinsAm && sixtyMinsAm[0]?.slots.length).fill("#fff")
-  );
 
   //fetch data from PM slots
   const { data: sixtyMinsPm } = useQuery({
@@ -38,43 +33,27 @@ const SixtyMins = () => {
     },
   });
 
-  //state for PM slots active style
-  const [colorsPm, setColorsPm] = useState(
-    Array(sixtyMinsAm && sixtyMinsAm[0]?.slots.length).fill("#0098da")
-  );
-  const [colorsPmm, setColorsPmm] = useState(
-    Array(sixtyMinsAm && sixtyMinsAm[0]?.slots.length).fill("#fff")
-  );
+  // For Am
+  const handleAm = (slot: any) => {
+    if (selectedAmSlots.indexOf(slot) === -1) {
+      setSelectedAmSlots((slots: any) => [...slots, slot])
+    } else {
+      setSelectedAmSlots((slots: any) => {
+        return slots.filter((sl: any) => sl !== slot)
+      })
+    }
+  }
 
-  //for AM
-  const handleChange = (index: number) => {
-    setColors((colors) => {
-      const newColors = [...colors];
-      newColors[index] = colors[index] === "#0098da" ? "white" : "#0098da";
-      return newColors;
-    });
-    setColorus((colors) => {
-      const newColors = [...colors];
-      newColors[index] = colors[index] === "white" ? "#0098da" : "white";
-      return newColors;
-    });
-    setSlot(sixtyMinsAm[0].slots[index]);
-  };
-
-  //for PM
-  const handleChangePm = (index: number) => {
-    setColorsPm((colors) => {
-      const newColors = [...colors];
-      newColors[index] = colors[index] === "#0098da" ? "white" : "#0098da";
-      return newColors;
-    });
-    setColorsPmm((colors) => {
-      const newColors = [...colors];
-      newColors[index] = colors[index] === "white" ? "#0098da" : "white";
-      return newColors;
-    });
-    setSlot(sixtyMinsAm[0].slots[index]);
-  };
+  //For Pm
+  const handlePm = (slot: any) => {
+    if (selectedPmSlots.indexOf(slot) === -1) {
+      setSelectedPmSlots((slots: any) => [...slots, slot])
+    } else {
+      setSelectedPmSlots((slots: any) => {
+        return slots.filter((sl: any) => sl !== slot)
+      })
+    }
+  }
 
   //loading
   if (isLoading) {
@@ -97,10 +76,9 @@ const SixtyMins = () => {
             {sixtyMinsAm &&
               sixtyMinsAm[0].slots.map((sixtyAm: any, i: number) => (
                 <span
-                  onClick={() => handleChange(i)}
-                  style={{ backgroundColor: colors[i], color: colorus[i] }}
                   key={i}
-                  className="cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                  className={`cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium focus:outline-none focus:ring active:bg-primary ${selectedAmSlots.indexOf(sixtyAm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                  onClick={() => handleAm(sixtyAm)}
                 >
                   {sixtyAm}
                 </span>
@@ -111,13 +89,9 @@ const SixtyMins = () => {
               {sixtyMinsPm &&
                 sixtyMinsPm[0].slots.map((sixtyPm: any, i: number) => (
                   <span
-                    onClick={() => handleChangePm(i)}
-                    style={{
-                      backgroundColor: colorsPm[i],
-                      color: colorsPmm[i],
-                    }}
                     key={i}
-                    className="cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium text-primary hover:bg-primary hover:text-white focus:outline-none focus:ring active:bg-primary"
+                    className={`cursor-pointer inline-block rounded border border-primary py-3 px-5 text-xl font-medium focus:outline-none focus:ring active:bg-primary ${selectedAmSlots.indexOf(sixtyPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                    onClick={() => handleAm(sixtyPm)}
                   >
                     {sixtyPm}
                   </span>
