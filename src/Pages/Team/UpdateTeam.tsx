@@ -37,50 +37,49 @@ const UpdateTeam = ({
     formState: { errors },
   } = useForm<UserSubmitForm>();
 
-    const handleEdit = (data: UserSubmitForm) => {
-        const name = data.name;
-        const email = data.email;
-        const name1 = data.name1;
-        const name2 = data.name2;
-        const name3 = data.name3;
-        const name4 = data.name4;
-        const email1 = data.email1;
-        const email2 = data.email2;
-        const email3 = data.email3;
-        const email4 = data.email4;
-        const description = data.description;
+  const handleEdit = (data: UserSubmitForm) => {
+    const name = data.name;
+    const email = data.email;
+    const name1 = data.name1;
+    const name2 = data.name2;
+    const name3 = data.name3;
+    const name4 = data.name4;
+    const email1 = data.email1;
+    const email2 = data.email2;
+    const email3 = data.email3;
+    const email4 = data.email4;
+    const description = data.description;
 
-        const info = {
-            name,
-            email,
-            name1,
-            email1,
-            name2,
-            email2,
-            name3,
-            email3,
-            name4,
-            email4,
-            description
-        };
+    const info = {
+      name,
+      email,
+      name1,
+      email1,
+      name2,
+      email2,
+      name3,
+      email3,
+      name4,
+      email4,
+      description,
+    };
 
-        fetch(`http://localhost:5000/team/${_id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json",
-                authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(info),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.acknowledged) {
-                    console.log(data);
-                    refetch();
-                    toast.success("Team Updated Successfully");
-                }
-            });
-
+    fetch(`https://scheduplannr-server.vercel.app/team/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(info),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          console.log(data);
+          refetch();
+          toast.success("Team Updated Successfully");
+        }
+      });
   };
 
   return (

@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { AiOutlineDelete, AiOutlineSave } from "react-icons/ai";
-import { useQuery } from "react-query";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../Shared/Loading/Loading";
 
@@ -172,7 +170,7 @@ const Availability = () => {
       day: [a, b, c, d, e, f, g],
     };
 
-    fetch("http://localhost:5000/availability", {
+    fetch("https://scheduplannr-server.vercel.app/availability", {
       method: "POST",
       headers: {
         "content-type": "application/json",

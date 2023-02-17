@@ -82,7 +82,7 @@ const DetailsPage = ({ singleUser }: any) => {
             about,
           };
 
-          fetch(`http://localhost:5000/user/${email}`, {
+          fetch(`https://scheduplannr-server.vercel.app/user/${email}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",

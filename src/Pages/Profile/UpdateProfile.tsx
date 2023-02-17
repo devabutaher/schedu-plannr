@@ -5,7 +5,7 @@ import DetailsPage from "./DetailsPage";
 
 const UpdateProfile = () => {
   const { user }: any = useContext(AuthContext);
-  useTitle("Update Profile")
+  useTitle("Update Profile");
 
   const [userInfo, setData] = useState([]);
 
@@ -13,7 +13,7 @@ const UpdateProfile = () => {
     const dataFetch = async () => {
       const data = await (
         await fetch(
-          `http://localhost:5000/user?email=${user?.email}`
+          `https://scheduplannr-server.vercel.app/user?email=${user?.email}`
         )
       ).json();
 
