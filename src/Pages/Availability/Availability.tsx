@@ -224,8 +224,6 @@ const Availability = () => {
 
                         <div className='w-28 flex gap-4 items-center'>
                             <input
-                                // onClick={handleStatus}
-                                // onChange={(e) => handleStatus(e, _id)}
                                 onChange={sunStatus}
                                 type="checkbox"
                                 checked={sun}
@@ -241,9 +239,6 @@ const Availability = () => {
                                         <div className='tooltip' data-tip="Start Time">
                                             <input
                                                 {...register("sunStart")}
-                                                // onChange={(e) => handleInfo(e, _id)}
-
-
                                                 type="time" defaultValue="10:00"
                                                 className="input input-bordered input-primary w-full max-w-xs text-2xl" />
                                         </div>
@@ -252,7 +247,7 @@ const Availability = () => {
 
                                         <div className='tooltip' data-tip="End Time">
                                             <input
-                                                // onChange={(e) => handleInfo(e, _id)}
+
                                                 {...register("sunEnd")}
                                                 type="time"
                                                 defaultValue="05:00"
@@ -276,8 +271,7 @@ const Availability = () => {
 
                         <div className='w-28 flex gap-4 items-center'>
                             <input
-                                // onClick={handleStatus}
-                                // onChange={(e) => handleStatus(e, _id)}
+
                                 onChange={monStatus}
                                 type="checkbox"
                                 checked={mon}
@@ -293,8 +287,6 @@ const Availability = () => {
                                         <div className='tooltip' data-tip="Start Time">
                                             <input
                                                 {...register("monStart")}
-                                                // onChange={(e) => handleInfo(e, _id)}
-
 
                                                 type="time" defaultValue="10:00"
                                                 className="input input-bordered input-primary w-full max-w-xs text-2xl" />
@@ -304,7 +296,7 @@ const Availability = () => {
 
                                         <div className='tooltip' data-tip="End Time">
                                             <input
-                                                // onChange={(e) => handleInfo(e, _id)}
+
                                                 {...register("monEnd")}
                                                 type="time"
                                                 defaultValue="05:00"
@@ -328,8 +320,7 @@ const Availability = () => {
 
                         <div className='w-28 flex gap-4 items-center'>
                             <input
-                                // onClick={handleStatus}
-                                // onChange={(e) => handleStatus(e, _id)}
+
                                 onChange={tueStatus}
                                 type="checkbox"
                                 checked={tue}
@@ -345,7 +336,6 @@ const Availability = () => {
                                         <div className='tooltip' data-tip="Start Time">
                                             <input
                                                 {...register("tueStart")}
-                                                // onChange={(e) => handleInfo(e, _id)}
 
 
                                                 type="time" defaultValue="10:00"
@@ -356,7 +346,7 @@ const Availability = () => {
 
                                         <div className='tooltip' data-tip="End Time">
                                             <input
-                                                // onChange={(e) => handleInfo(e, _id)}
+
                                                 {...register("tueEnd")}
                                                 type="time"
                                                 defaultValue="05:00"
@@ -380,8 +370,7 @@ const Availability = () => {
 
                         <div className='w-28 flex gap-4 items-center'>
                             <input
-                                // onClick={handleStatus}
-                                // onChange={(e) => handleStatus(e, _id)}
+
                                 onChange={wedStatus}
                                 type="checkbox"
                                 checked={wed}
@@ -397,7 +386,6 @@ const Availability = () => {
                                         <div className='tooltip' data-tip="Start Time">
                                             <input
                                                 {...register("wedStart")}
-                                                // onChange={(e) => handleInfo(e, _id)}
 
 
                                                 type="time" defaultValue="10:00"
@@ -408,7 +396,7 @@ const Availability = () => {
 
                                         <div className='tooltip' data-tip="End Time">
                                             <input
-                                                // onChange={(e) => handleInfo(e, _id)}
+
                                                 {...register("wedEnd")}
                                                 type="time"
                                                 defaultValue="05:00"
@@ -432,8 +420,7 @@ const Availability = () => {
 
                         <div className='w-28 flex gap-4 items-center'>
                             <input
-                                // onClick={handleStatus}
-                                // onChange={(e) => handleStatus(e, _id)}
+
                                 onChange={thuStatus}
                                 type="checkbox"
                                 checked={thu}
@@ -449,8 +436,6 @@ const Availability = () => {
                                         <div className='tooltip' data-tip="Start Time">
                                             <input
                                                 {...register("thuStart")}
-                                                // onChange={(e) => handleInfo(e, _id)}
-
 
                                                 type="time" defaultValue="10:00"
                                                 className="input input-bordered input-primary w-full max-w-xs text-2xl" />
@@ -484,8 +469,7 @@ const Availability = () => {
 
                         <div className='w-28 flex gap-4 items-center'>
                             <input
-                                // onClick={handleStatus}
-                                // onChange={(e) => handleStatus(e, _id)}
+
                                 onChange={friStatus}
                                 type="checkbox"
                                 checked={fri}
@@ -501,8 +485,6 @@ const Availability = () => {
                                         <div className='tooltip' data-tip="Start Time">
                                             <input
                                                 {...register("friStart")}
-                                                // onChange={(e) => handleInfo(e, _id)}
-
 
                                                 type="time" defaultValue="10:00"
                                                 className="input input-bordered input-primary w-full max-w-xs text-2xl" />
@@ -512,7 +494,7 @@ const Availability = () => {
 
                                         <div className='tooltip' data-tip="End Time">
                                             <input
-                                                // onChange={(e) => handleInfo(e, _id)}
+
                                                 {...register("friEnd")}
                                                 type="time"
                                                 defaultValue="05:00"
@@ -536,8 +518,7 @@ const Availability = () => {
 
                         <div className='w-28 flex gap-4 items-center'>
                             <input
-                                // onClick={handleStatus}
-                                // onChange={(e) => handleStatus(e, _id)}
+
                                 onChange={satStatus}
                                 type="checkbox"
                                 checked={sat}
@@ -553,8 +534,6 @@ const Availability = () => {
                                         <div className='tooltip' data-tip="Start Time">
                                             <input
                                                 {...register("satStart")}
-                                                // onChange={(e) => handleInfo(e, _id)}
-
 
                                                 type="time" defaultValue="10:00"
                                                 className="input input-bordered input-primary w-full max-w-xs text-2xl" />
@@ -564,7 +543,7 @@ const Availability = () => {
 
                                         <div className='tooltip' data-tip="End Time">
                                             <input
-                                                // onChange={(e) => handleInfo(e, _id)}
+
                                                 {...register("satEnd")}
                                                 type="time"
                                                 defaultValue="05:00"

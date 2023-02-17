@@ -48,29 +48,28 @@ const Footer = () => {
                 </span>
                 <ul className="list-unstyled">
                   <li>
-                    <a
+                    <Link
+                    to={'/about'}
                       className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://www.creative-tim.com/presentation?ref=njs-profile"
                     >
                       About Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link to={'/blogs'}
                       className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://blog.creative-tim.com?ref=njs-profile"
                     >
                       Blog
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
+                    to={'/dashboard/team'}
                       className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                      href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
                     >
-                      Free Products
-                    </a>
+                      Create Team
+                    </Link>
                   </li>
                 </ul>
               </div>

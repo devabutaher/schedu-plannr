@@ -1,6 +1,5 @@
-import { FiLogOut, FiSettings } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import { RiLoginCircleLine, RiAdminLine } from "react-icons/ri";
-import { IoCreateOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineFolderAdd, AiOutlineHome } from "react-icons/ai";
 import { SiAmazonpay } from "react-icons/si";
@@ -17,7 +16,6 @@ const Dashboard = () => {
   const { user, logOut }: any = useContext(AuthContext);
 
   const [isAdmin] = useAdmin(user?.email);
-  console.log(isAdmin);
 
   const signOut = () => {
     logOut()

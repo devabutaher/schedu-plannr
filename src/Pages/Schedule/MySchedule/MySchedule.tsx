@@ -13,11 +13,14 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
 
 const MySchedule = () => {
   const { user }: any = useContext(AuthContext);
+
+  useTitle("My Schedule");
 
   // const {
   //   data: mySchedule = [],
@@ -64,11 +67,10 @@ const MySchedule = () => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/createSchedule/${e._id}`, {
           method: "DELETE",
-          headers:{
+          headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          }
+          },
         })
-
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

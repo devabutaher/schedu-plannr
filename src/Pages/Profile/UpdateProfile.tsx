@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../components/Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 import DetailsPage from "./DetailsPage";
 
 const UpdateProfile = () => {
   const { user }: any = useContext(AuthContext);
+  useTitle("Update Profile")
 
   const [userInfo, setData] = useState([]);
 
