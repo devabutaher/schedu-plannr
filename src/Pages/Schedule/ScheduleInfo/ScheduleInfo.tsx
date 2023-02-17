@@ -333,15 +333,9 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                   {errors.link.message}
                 </p>
               )}
-              {/* <label
-                htmlFor="link"
-                className="inline-block text-gray-800 text-sm sm:text-base mb-2 mt-8"
-              >
-                Use an existing schedule
-              </label> */}
               <br />
-              <div className="dropdown dropdown-hover">
-                <label tabIndex={0} className="btn bg-gray-200 text-gray-800 hover:bg-gray-200 border-none m-1 w-[770px]"> Use an existing schedule</label>
+              <div className="dropdown dropdown-hover mt-16">
+                <label tabIndex={0} className="btn bg-gray-200 text-gray-800 hover:bg-gray-200 rounded outline-none m-1 w-[768px]"> Use an existing schedule</label>
                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow-2xl bg-gray-100 w-full">
                   {
                     weeklyAvailability?.map((weekAvailability: any) => <li onClick={() => handleAvailability(weekAvailability._id)}
@@ -372,7 +366,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                           v.value?.a ?
                             <span className="mb-5">{v.value?.a} – {v.value?.b} </span>
                             :
-                            <span className="mb-5">Undifined</span>
+                            <span className="mb-5">Unavailable</span>
                         }</span>)
                       }
                     </div>
