@@ -26,8 +26,6 @@ import AllUser from "../../Dashboard/AllUser/AllUser";
 import AddBlog from "../../Pages/Blog/AddBlog";
 import SinglePost from "../../Pages/Blog/SinglePost";
 import Getuserinfo from "../../Pages/Blog/Getuserinfo";
-import InputBox from "../../Pages/videoChat/InputBox";
-import Room from "../../Pages/videoChat/Room";
 import Availability from "../../Pages/Availability/Availability";
 import Resources from "../../Pages/Resources/Resources";
 import IntegrationDetails from "../../Pages/Resources/IntegrationDetails";
@@ -50,14 +48,6 @@ export const router = createBrowserRouter([
       {
         path: "/plan",
         element: <Plans></Plans>,
-      },
-      {
-        path: "/supports",
-        element: <InputBox></InputBox>,
-      },
-      {
-        path: "/room/:id",
-        element: <Room></Room>,
       },
 
       {
