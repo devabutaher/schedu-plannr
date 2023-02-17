@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import {
   AiOutlineCopy,
@@ -15,25 +15,13 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const MySchedule = () => {
+
   const { user }: any = useContext(AuthContext);
 
-  // const {
-  //   data: mySchedule = [],
-  //   isLoading,
-  //   refetch,
-  // } = useQuery({
-
-  //   queryKey: ["mySchedule", user?.email],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
-  //     );
-  //     const data = res.json();
-  //     return data;
-  //   },
-  // });
+  const [checked, setChecked] = useState(true)
 
   const {
     data: mySchedule,
@@ -64,7 +52,7 @@ const MySchedule = () => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/createSchedule/${e._id}`, {
           method: "DELETE",
-          headers:{
+          headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,
           }
         })
@@ -80,7 +68,13 @@ const MySchedule = () => {
     });
   };
 
-  console.log(mySchedule);
+  const handleChecked = (e: any) => {
+    setChecked(e.target.checked)
+  }
+
+  const handleCopy = () => {
+    toast.success("Schedule Link Copied");
+  }
 
   return (
     <div className="pl-3 md:pl-48 lg:pl-0">
@@ -114,11 +108,12 @@ const MySchedule = () => {
           } = e;
           return (
             <div key={_id}>
-              <div className="w-80 border-t-8 border-primary flex flex-col gap-6 p-4 rounded-lg shadow-xl">
+              <div className={`w-80 border-t-8 ${checked ? "border-primary" : "border-gray-500"} flex flex-col gap-6 p-4 rounded-lg shadow-xl`}>
                 <div className="flex justify-center gap-4">
                   <div className="form-control w-52">
                     <label className="cursor-pointer label">
                       <input
+                        onClick={handleChecked}
                         data-tip="ON | OFF"
                         type="checkbox"
                         defaultChecked={true}
@@ -147,9 +142,13 @@ const MySchedule = () => {
                   <button className="tooltip hover:text-black" data-tip="Share">
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
-                  <button className="tooltip hover:text-black" data-tip="Copy">
-                    <AiOutlineCopy size={"2rem"} />
-                  </button>
+                  <CopyToClipboard
+                    onCopy={handleCopy}
+                    text={link}>
+                    <button className="tooltip hover:text-black" data-tip="Copy">
+                      <AiOutlineCopy size={"2rem"} />
+                    </button>
+                  </CopyToClipboard>
                 </div>
                 <div className="flex flex-col gap-4">
                   <h1 className="text-2xl">{title}</h1>
@@ -165,14 +164,17 @@ const MySchedule = () => {
                     className="text-primary underline"
                     href={link}
                     target="_blank"
-                    rel="noreferrer"
                   >
                     /Schedule Link
                   </a>
-                  <div className="flex gap-2 items-center p-2 border rounded-lg border-primary hover:bg-primary hover:text-white cursor-pointer text-sm">
-                    <FiCopy size={"1rem"} />
-                    <span>Copy Link</span>
-                  </div>
+                  <CopyToClipboard
+                    onCopy={handleCopy}
+                    text={link}>
+                    <div className="flex gap-2 items-center p-2 border rounded-lg border-primary hover:bg-primary hover:text-white cursor-pointer text-sm">
+                      <FiCopy size={"1rem"} />
+                      <span>Copy Link</span>
+                    </div>
+                  </CopyToClipboard>
                 </div>
               </div>
               {/* this is modal */}
