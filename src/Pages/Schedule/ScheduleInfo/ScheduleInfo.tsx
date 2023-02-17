@@ -1,8 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvider";
+import Loading from "../../../Shared/Loading/Loading";
 
 type UserSubmitForm = {
   name: string;
@@ -18,6 +20,32 @@ type UserSubmitForm = {
 const ScheduleInfo = ({ value, slot, slotPm }: any) => {
   const { user }: any = useContext(AuthContext);
   const navigate = useNavigate();
+  const { data: weeklyAvailability, isLoading, refetch } = useQuery({
+    queryKey: ["weeklyAvailability", user?.email],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:5000/weeklySchedule?email=${user?.email}`);
+      const data = res.json();
+      return data;
+    }
+  })
+  const [getAvailability, setGetAvailability] = useState<any>([weeklyAvailability]);
+
+  const handleAvailability = (id: any) => {
+    fetch(`http://localhost:5000/weeklySchedule/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data) {
+          setGetAvailability(data);
+        }
+      });
+
+
+  }
+  console.log(getAvailability?.day);
+
+  if (weeklyAvailability) {
+    console.log(weeklyAvailability);
+  }
 
   const {
     register,
@@ -88,6 +116,10 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       })
       .catch((error) => console.error(error));
   };
+
+  if (isLoading) {
+    return <Loading></Loading>
+  }
 
   return (
     <>
@@ -301,7 +333,54 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                   {errors.link.message}
                 </p>
               )}
+              <br />
+              <div className="dropdown dropdown-hover mt-16">
+                <label tabIndex={0} className="btn bg-gray-200 text-gray-800 hover:bg-gray-200 rounded outline-none m-1 w-[768px]"> Use an existing schedule</label>
+                <ul tabIndex={0} className="dropdown-content menu p-2 shadow-2xl bg-gray-100 w-full">
+                  {
+                    weeklyAvailability?.map((weekAvailability: any) => <li onClick={() => handleAvailability(weekAvailability._id)}
+                      className="text-xl cursor-pointer hover:bg-primary hover:text-white">{weekAvailability.title}</li>
+
+                    )
+                  }
+                </ul>
+              </div>
+
+              {/* </select> */}
+              <div className="w-full flex mt-10 rounded-lg border border-gray-300">
+                <div className=" w-6/12 py-5 border-r-2 border-gray-300">
+                  <h3 className="text-lg font-bold m-5">Weekly Hours</h3>
+                  <div className="flex items-center px-5 ">
+                    <div className="grid col-span-1 text-2xl font-bold mr-16">
+                      {getAvailability &&
+                        getAvailability?.day?.map((v: any) => <span className="mb-5">{v.label}</span>)
+                      }
+                    </div>
+                    <div className="grid col-span-1 text-2xl">
+
+
+
+
+                      {getAvailability &&
+                        getAvailability?.day?.map((v: any) => <span className="mb-5">{
+                          v.value?.a ?
+                            <span className="mb-5">{v.value?.a} – {v.value?.b} </span>
+                            :
+                            <span className="mb-5">Unavailable</span>
+                        }</span>)
+                      }
+                    </div>
+                  </div>
+                </div>
+                <div className=" w-6/12">
+                  <h2 className="text-xl font-bold my-12 ml-5">DATE OVERRIDES</h2>
+                  <p className="text-center text-lg text-gray-500"> To override your hours on specific dates, update your schedule under Availability</p>
+                </div>
+              </div>
             </div>
+
+
+
 
             <div className="sm:col-span-2">
               <label
@@ -329,7 +408,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
             </div>
           </form>
         </div>
-      </div>
+      </div >
     </>
   );
 };
