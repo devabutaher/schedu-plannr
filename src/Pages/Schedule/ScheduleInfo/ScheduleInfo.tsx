@@ -41,11 +41,6 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
 
 
   }
-  console.log(getAvailability?.day);
-
-  if (weeklyAvailability) {
-    console.log(weeklyAvailability);
-  }
 
   const {
     register,
@@ -92,26 +87,6 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
           navigate("/dashboard/mySchedule");
         } else {
           toast.error("Schedule Created Failed");
-        }
-      })
-      .catch((error) => console.error(error));
-
-    fetch("http://localhost:5000/scheduleCreate", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify(info),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          console.log(data.acknowledged);
-          // toast.success("Schedule Created Successfully");
-          // navigate("/dashboard/mySchedule");
-        } else {
-          // toast.error("Schedule Created Failed");
         }
       })
       .catch((error) => console.error(error));

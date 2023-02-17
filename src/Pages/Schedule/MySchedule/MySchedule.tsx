@@ -108,6 +108,7 @@ const MySchedule = () => {
             link,
             name,
             slot,
+            slotPm,
             organization,
             _id,
             description,
@@ -159,7 +160,8 @@ const MySchedule = () => {
                     <p className="">Host name: {name}</p>
                     <p className="">Organization: {organization}</p>
                     <p className="">Location: {location}</p>
-                    <p className="">Meeting time: {slot}</p>
+                    {slot && <p className="">Meeting time: {slot}</p>}
+                    {slotPm && <p className="">Meeting time: {slotPm}</p>}
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
