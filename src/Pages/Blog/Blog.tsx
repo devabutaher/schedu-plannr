@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import useTitle from "../../hooks/useTitle/useTitle";
 import BlogCard from "./BlogCard";
 
 const Blog = () => {
@@ -7,6 +8,7 @@ const Blog = () => {
     axios(`https://scheduplannr-server.vercel.app/blogs`)
   );
   console.log(data);
+  useTitle("Blog");
 
   return (
     <div>

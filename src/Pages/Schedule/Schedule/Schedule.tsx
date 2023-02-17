@@ -5,6 +5,7 @@ import SlotCategory from '../Slot Category/SlotCategory';
 import Nav from '../../../Shared/Nav/Nav';
 import Footer from '../../Footer/Footer';
 import { AuthContext } from '../../../components/Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle/useTitle';
 
 const Schedule = () => {
 
@@ -13,6 +14,8 @@ const Schedule = () => {
 
     //am & pm slots
     const { slot, slotPm }: any = useContext(AuthContext);
+
+    useTitle("Schedule")
 
     return (
         <div>

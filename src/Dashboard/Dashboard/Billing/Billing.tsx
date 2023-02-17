@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import BillingCard from "./BillingCard";
 
 const Billing = () => {
   const [data, setData] = useState([]);
+  useTitle("Payment");
 
   useEffect(() => {
     const dataFetch = async () => {

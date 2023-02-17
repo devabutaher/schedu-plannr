@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineDelete, AiOutlineSave } from "react-icons/ai";
 import { useQuery } from "react-query";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 type UserSubmitForm = {
   sunStart: string;
@@ -16,7 +17,7 @@ const Availability = () => {
   const [thu, setThu] = useState(true);
   const [fri, setFri] = useState(true);
   const [sat, setSat] = useState(true);
-
+  useTitle("Availability");
   const {
     data = [],
     isLoading,
