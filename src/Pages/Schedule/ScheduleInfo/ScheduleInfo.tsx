@@ -18,6 +18,7 @@ type UserSubmitForm = {
 };
 
 const ScheduleInfo = ({ value, slot, slotPm }: any) => {
+  console.log(slot, slotPm);
   const { user }: any = useContext(AuthContext);
   const navigate = useNavigate();
   const {
@@ -55,6 +56,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
   } = useForm<UserSubmitForm>();
 
   const handleInfo = (data: UserSubmitForm) => {
+
     const name = data.name;
     const email = data.email;
     const phone = data.phone;
@@ -89,8 +91,10 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("Schedule Created Successfully");
           navigate("/dashboard/mySchedule");
+          toast.success("Schedule Created Successfully");
+          window.location.reload();
+
         } else {
           toast.error("Schedule Created Failed");
         }
