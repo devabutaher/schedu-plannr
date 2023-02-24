@@ -4,7 +4,6 @@ import { useQuery } from "react-query";
 import Loading from "../Shared/Loading/Loading";
 
 const Notes = () => {
-  // const [text, setText] = useState<any>(null);
 
   const {
     data: notes,
@@ -22,7 +21,7 @@ const Notes = () => {
   const handleDelete = (id: any) => {
     fetch(`https://scheduplannr-server.vercel.app/notes/${id}`, {
       method: "DELETE",
-      headers:{
+      headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
       }
     })
@@ -37,28 +36,6 @@ const Notes = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-  // const { data: note }: any = useQuery({
-  //   queryKey: ['note'],
-  //   queryFn: async () => {
-  //     const res = await fetch(`https://scheduplannr-server.vercel.app/notes/${note._id}`);
-  //     const data = res.json();
-  //     return data;
-  //   }
-  // })
-
-  // const [bd, setBd] = useState<any>(null);
-  // useEffect(() => {
-  //   fetch(`https://scheduplannr-server.vercel.app/notes/${notes.id}`)
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // }, []);
-
-  // const arr: any = [];
-  // for (let i = 0; i < notes.length; i++) {
-  //   arr.push(notes[i]._id)
-  //   return arr;
-  // }
-  // console.log(arr)
 
   return (
     <div>
@@ -71,33 +48,31 @@ const Notes = () => {
           {notes.map((note: any) => (
             <ul className="p-4 lg:p-2">
               <li>
-                <label
-                  htmlFor="my-modal-3"
-                  className="flex items-center justify-between"
-                >
-                  <div className="flex md:items-center justify-between  w-full hover:dark:bg-gray-900 hover:text-white border p-4 overflow-hidden rounded-xl lg:p-6">
-                    <div className="">
-                      <h3 className="mb-5 ml-8 font-semibold md:col-start-2 md:col-span-4 md:ml-0 xl:col-start-3 xl:col-span-9 text-xl">
-                        {note.title}
-                      </h3>
-                      <p className="ml-8 md:col-start-2 md:col-span-4 xl:col-start-3 xl:col-span-9 md:ml-0 ">
-                        {note.note ? (
-                          <>{note.note.slice(0, 100) + "...."}</>
-                        ) : (
-                          note.note
-                        )}
-                      </p>
+                <div className="border hover:bg-primary hover:text-white rounded-xl flex md:items-center justify-between px-5  ">
+                  <label
+                    htmlFor="my-modal-3"
+                    className="flex items-center justify-between w-full"
+                  >
+                    <div className=" w-full mt-5 overflow-hidden  ">
+                      <div className="">
+                        <h3 className="mb-5 ml-8 font-semibold md:col-start-2 md:col-span-4 md:ml-0 xl:col-start-3 xl:col-span-9 text-xl">
+                          {note.title}
+                        </h3>
+                      </div>
+
                     </div>
-                    
-                  </div>
+                  </label>
                   <div className="flex md:items-center text-lg justify-end">
-                      <RiDeleteBin6Line
-                        onClick={() => handleDelete(note._id)}
-                        className="text-3xl ml-8 hover:text-red-700 cursor-pointer"
-                      />
-                    </div>
-                </label>
+                    <RiDeleteBin6Line
+                      onClick={() => handleDelete(note._id)}
+                      className="text-3xl ml-8 hover:text-red-700 cursor-pointer"
+                    />
+                  </div>
+                </div>
+
               </li>
+
+              {/* modal */}
               <input type="checkbox" id="my-modal-3" className="modal-toggle" />
               <div className="modal">
                 <div className="modal-box relative">

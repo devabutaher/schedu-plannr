@@ -28,7 +28,7 @@ const AddNotes = () => {
           toast.success("Saved your note!");
           reset();
         } else {
-          alert(data.message);
+          toast.success("Note not saved!");
         }
       })
       .catch((error) => console.error(error));
