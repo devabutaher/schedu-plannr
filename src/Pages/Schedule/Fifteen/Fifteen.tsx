@@ -42,7 +42,8 @@ const Fifteen = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
-    setSlot(slot);
+    const arr = [...selectedAmSlots, slot];
+    setSlot(arr);
   }
 
   //For Pm
@@ -54,7 +55,8 @@ const Fifteen = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
-    setSlotPm(slot);
+    const arr = [...selectedPmSlots, slot];
+    setSlotPm(arr);
   }
 
   //loading
@@ -68,18 +70,18 @@ const Fifteen = () => {
 
   return (
     <div>
-      <div className="h-[25rem] lg:py-0 py-12 px-2">
+      <div className="h-[25rem] lg:py-0 py-12">
         <h1 className="text-center text-2xl mb-4 text-primary -mt-2">
           Please Select A Time Slot
         </h1>
 
-        <div className="flex justify-center gap-4">
-          <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
+        <div className="flex justify-around ">
+          <div className="flex flex-col text-center gap-4 h-[22rem] overflow-scroll pr-2">
             {fifteenMinsAm &&
               fifteenMinsAm[0].slots.map((fifteenAm: any, i: number) => (
                 <span
                   key={i}
-                  className={`cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium focus:outline-none focus:ring ${selectedAmSlots.indexOf(fifteenAm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                  className={`cursor-pointer inline-block rounded border border-primary py-3 lg:px-5 px-1 md:text-xl text-lg text-center font-medium focus:outline-none focus:ring ${selectedAmSlots.indexOf(fifteenAm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
                   onClick={() => handleAm(fifteenAm)}
                 >
                   {fifteenAm}
@@ -91,7 +93,7 @@ const Fifteen = () => {
               fifteenMinsPm[0].slots.map((fifteenPm: any, i: number) => (
                 <span
                   key={i}
-                  className={`cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium focus:outline-none focus:ring ${selectedPmSlots.indexOf(fifteenPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                  className={`cursor-pointer inline-block rounded border border-primary py-3 lg:px-5 px-1 md:text-xl text-lg text-center font-medium focus:outline-none focus:ring ${selectedPmSlots.indexOf(fifteenPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
                   onClick={() => handlePm(fifteenPm)}
                 >
                   {fifteenPm}

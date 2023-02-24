@@ -18,8 +18,13 @@ type UserSubmitForm = {
 };
 
 const ScheduleInfo = ({ value, slot, slotPm }: any) => {
-  console.log(slot, slotPm);
-  const { user }: any = useContext(AuthContext);
+  const { user, setSlot, setSlotPm }: any = useContext(AuthContext);
+  let ary: any;
+  if (slot || slotPm || (slot && slotPm)) {
+    ary = slot.concat(slotPm);
+    console.log(ary);
+  }
+  // console.log(value?.toString().slice(4, 15));
   const navigate = useNavigate();
   const {
     data: weeklyAvailability,
@@ -76,8 +81,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       link,
       description,
       value,
-      slot,
-      slotPm,
+      ary,
     };
 
     fetch("https://scheduplannr-server.vercel.app/createSchedule", {
@@ -91,9 +95,10 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          navigate("/dashboard/mySchedule");
           toast.success("Schedule Created Successfully");
-          window.location.reload();
+          navigate("/dashboard/mySchedule");
+          setSlot(null);
+          setSlotPm(null);
 
         } else {
           toast.error("Schedule Created Failed");
@@ -108,7 +113,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
 
   return (
     <>
-      <div className="py-12">
+      <div className="py-12 mt-5">
         <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
           <h1 className="text-center text-4xl py-10 font-semibold">
             Schedule <span className="text-primary">Information</span>
@@ -242,7 +247,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
               >
                 Schedule Location
               </label>
-              <div className="flex justify-between items-center gap-4 flex-wrap py-2">
+              <div className="flex justify-between items-center  gap-4 flex-wrap py-2">
                 <img
                   className="w-20"
                   src="https://img.icons8.com/clouds/2x/google-meet.png"
@@ -319,10 +324,10 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                 </p>
               )}
               <br />
-              <div className="dropdown dropdown-hover mt-16">
+              <div className="dropdown dropdown-hover mt-16 max-w-sm">
                 <label
                   tabIndex={0}
-                  className="btn bg-gray-200 text-gray-800 hover:bg-gray-200 rounded outline-none m-1 w-[768px]"
+                  className="btn bg-gray-200 text-gray-800 hover:bg-gray-200 rounded outline-none m-1 md:w-[768px] ml-auto w-[300px]"
                 >
                   {" "}
                   Use an existing schedule
@@ -344,7 +349,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
 
               {/* </select> */}
               <div className="w-full flex mt-10 rounded-lg border border-gray-300">
-                <div className=" w-6/12 py-5 border-r-2 border-gray-300">
+                <div className="md:w-6/12 py-5 md:border-r-2 border-gray-300">
                   <h3 className="text-lg font-bold m-5">Weekly Hours</h3>
                   <div className="flex items-center px-5 ">
                     <div className="grid col-span-1 text-2xl font-bold mr-16">
@@ -369,13 +374,13 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
                     </div>
                   </div>
                 </div>
-                <div className=" w-6/12">
+                <div className="w-6/12 md:block hidden">
                   <h2 className="text-xl font-bold my-12 ml-5">
                     DATE OVERRIDES
                   </h2>
-                  <p className="text-center text-lg text-gray-500">
+                  <p className="text-center text-lg text-gray-500 md:pb-10">
                     {" "}
-                    To override your hours on specific dates, update your
+                    To override your hours on specific dates, create your
                     schedule under Availability
                   </p>
                 </div>

@@ -25,8 +25,8 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
   const [user, setUser] = useState<{} | null>(null);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
-  const [slot, setSlot] = useState<any>(null);
-  const [slotPm, setSlotPm] = useState<any>(null);
+  const [slot, setSlot] = useState<any>([]);
+  const [slotPm, setSlotPm] = useState<any>([]);
   // Register User
   const RegisterUser = async (
     email: string,
@@ -50,8 +50,8 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
     updateProfile(userCredential.user, {
       displayName: displayName,
     })
-      .then(() => {})
-      .catch((error) => {});
+      .then(() => { })
+      .catch((error) => { });
   };
 
   // google sign in
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
     setLoading(true);
     localStorage.removeItem("accessToken");
     return signOut(auth)
-      .then(() => {})
+      .then(() => { })
       .catch((err) => {
         console.error(err);
       });

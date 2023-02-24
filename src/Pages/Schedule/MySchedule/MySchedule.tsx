@@ -102,8 +102,8 @@ const MySchedule = () => {
             location,
             link,
             name,
-            slot,
-            slotPm,
+            value,
+            ary,
             organization,
             _id,
             description,
@@ -155,13 +155,14 @@ const MySchedule = () => {
                   </CopyToClipboard>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <h1 className="text-2xl">{title}</h1>
+                  <h1 className="text-3xl">{title}</h1>
+                  <h3 className="text-xl">{value?.toString().slice(0, 9)}</h3>
                   <div className="flex flex-col gap-2">
                     <p className="">Host name: {name}</p>
                     <p className="">Organization: {organization}</p>
                     <p className="">Location: {location}</p>
-                    {slot && <p className="">Meeting time: {slot}</p>}
-                    {slotPm && <p className="">Meeting time: {slotPm}</p>}
+                    {ary && <p className=""><b>Meeting time:</b> {ary.join(",")}</p>}
+
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
@@ -186,7 +187,7 @@ const MySchedule = () => {
               {
                 <EditSchedule
                   organization={organization}
-                  slot={slot}
+                  // slot={slot}
                   name={name}
                   link={link}
                   location={location}
