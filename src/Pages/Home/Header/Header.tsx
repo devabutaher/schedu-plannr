@@ -10,7 +10,7 @@ const Header = () => {
                 <div className='lg:w-6/12 text-center lg:text-left mr-auto' >
                     <h1 className=" text-5xl font-bold" data-aos="fade-right">Scheduling is <span className='text-primary' data-aos="fade-right">Easy Now</span></h1>
                     <p className="py-6 text-accent">Schedu Plannr is your scheduling automation platform for eliminating the back-and-forth emails for finding the perfect time and so much more.</p>
-                    {/* <button className="btn btn-primary text-white ">Get Started</button> */}
+
                 </div>
             </div>
         </div>
