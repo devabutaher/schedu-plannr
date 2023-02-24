@@ -13,7 +13,7 @@ const TimeAndDate = ({ handleForm, setSlot, onChange, value }: any) => {
         <div className='flex justify-center gap-4 w-11/12 mx-auto'>
           <div className='lg:flex justify-center gap-8'>
             <div className='px-2'>
-              <Calendar className='md:w-[40rem] bg-transparent w-full h-[25rem] font-bold text-lg' onChange={onChange} value={value} />
+              <Calendar className='md:w-[40rem] bg-transparent mx-auto h-[25rem] font-bold text-lg' onChange={onChange} value={value} />
               {
                 value ?
                   <h1 className='text-2xl text-center -mt-14'>{value.toString().slice(0, 15)}</h1>

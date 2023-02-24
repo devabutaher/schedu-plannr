@@ -61,14 +61,23 @@ const Notes = () => {
                       </div>
 
                     </div>
+
                   </label>
+
+
+                  </div>
+
                   <div className="flex md:items-center text-lg justify-end">
                     <RiDeleteBin6Line
                       onClick={() => handleDelete(note._id)}
                       className="text-3xl ml-8 hover:text-red-700 cursor-pointer"
                     />
                   </div>
+
                 </div>
+
+
+                </label>
 
               </li>
 
