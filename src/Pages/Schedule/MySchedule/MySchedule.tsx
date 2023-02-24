@@ -81,6 +81,9 @@ const MySchedule = () => {
 
   return (
     <div className="pl-3 md:pl-48 lg:pl-0">
+      <h1 className="text-4xl font-bold text-center uppercase my-5">
+      Sched<span className="text-primary">ules</span>
+      </h1>
       <Link to={"/schedule/fifteen"}>
         <div className="flex justify-end">
           <button className="inline-block rounded bg-primary px-4 py-2 font-medium text-white hover:bg-indigo-700">

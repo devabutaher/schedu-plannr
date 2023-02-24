@@ -4,7 +4,6 @@ import { useQuery } from "react-query";
 import Loading from "../Shared/Loading/Loading";
 
 const Notes = () => {
-
   const {
     data: notes,
     isLoading,
@@ -23,7 +22,7 @@ const Notes = () => {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      }
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -59,26 +58,16 @@ const Notes = () => {
                           {note.title}
                         </h3>
                       </div>
-
                     </div>
-
                   </label>
-
-
-                  </div>
-
-                  <div className="flex md:items-center text-lg justify-end">
-                    <RiDeleteBin6Line
-                      onClick={() => handleDelete(note._id)}
-                      className="text-3xl ml-8 hover:text-red-700 cursor-pointer"
-                    />
-                  </div>
-
                 </div>
 
-
-                </label>
-
+                <div className="flex md:items-center text-lg justify-end">
+                  <RiDeleteBin6Line
+                    onClick={() => handleDelete(note._id)}
+                    className="text-3xl ml-8 hover:text-red-700 cursor-pointer"
+                  />
+                </div>
               </li>
 
               {/* modal */}

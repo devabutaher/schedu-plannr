@@ -65,6 +65,9 @@ const Team = () => {
 
   return (
     <div>
+      <h1 className="text-4xl font-bold text-center uppercase">
+      Te<span className="text-primary">ams</span>
+      </h1>
       <div className="flex justify-end mb-5">
         <Link to={"/dashboard/createTeam"}>
           <button className="inline-block rounded bg-primary px-4 py-2 font-medium text-white hover:bg-indigo-700">
