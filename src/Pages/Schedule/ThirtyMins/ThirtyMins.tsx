@@ -43,7 +43,8 @@ const ThirtyMins = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
-    setSlot(slot);
+    const arr = [...selectedAmSlots, slot];
+    setSlot(arr);
   }
 
   //For Pm
@@ -55,7 +56,8 @@ const ThirtyMins = () => {
         return slots.filter((sl: any) => sl !== slot)
       })
     }
-    setSlotPm(slot);
+    const arr = [...selectedPmSlots, slot];
+    setSlotPm(arr);
   }
 
 
@@ -75,14 +77,14 @@ const ThirtyMins = () => {
           Please Select A Time Slot
         </h1>
 
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-around">
           <div>
-            <div className="flex flex-col gap-4 h-[22rem] overflow-scroll pr-2">
+            <div className="flex flex-col text-center gap-4 h-[22rem] overflow-scroll pr-2">
               {thirtyMinsAm &&
                 thirtyMinsAm[0].slots.map((thirtyAm: any, i: number) => (
                   <span
                     key={i}
-                    className={`cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium focus:outline-none focus:ring ${selectedAmSlots.indexOf(thirtyAm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                    className={`cursor-pointer inline-block rounded border border-primary py-3 lg:px-5 px-1 md:text-xl text-lg text-center font-medium focus:outline-none focus:ring ${selectedAmSlots.indexOf(thirtyAm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
                     onClick={() => handleAm(thirtyAm)}
                   >
                     {thirtyAm}
@@ -96,7 +98,7 @@ const ThirtyMins = () => {
                 thirtyMinsPm[0].slots.map((thirtyPm: any, i: number) => (
                   <span
                     key={i}
-                    className={`cursor-pointer inline-block rounded border border-primary py-3 w-56 text-center text-xl font-medium focus:outline-none focus:ring ${selectedPmSlots.indexOf(thirtyPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
+                    className={`cursor-pointer inline-block rounded border border-primary py-3 lg:px-5 px-1 md:text-xl text-lg text-center font-medium focus:outline-none focus:ring ${selectedPmSlots.indexOf(thirtyPm) > -1 ? 'bg-primary text-white' : 'bg-white text-primary'}`}
                     onClick={() => handlePm(thirtyPm)}
                   >
                     {thirtyPm}

@@ -192,52 +192,54 @@ const Availability = () => {
   // refetch();
   return (
     <div className="py-8">
-      <h1 className="text-center text-4xl pb-8 font-semibold">
+      <h1 className="text-center md:text-4xl text-2xl  pb-8 font-semibold">
         Set Your <span className="text-primary">Weekly</span> Hours
       </h1>
 
       <form onSubmit={handleSubmit(handleInfo)}>
-        <h2 className="text-2xl font-bold mt-5">Schedule Name</h2>
-        <input
-          {...register("title")}
-          type="text"
-          className="mt-2 mb-7 bg-transparent border border-primary w-full py-3 px-2 placeholder:text-xl text-xl focus:outline-primary rounded-xl"
-          placeholder="Give your schedule a name"
-        />
+        <h2 className="md:text-2xl text-xl font-bold mt-5 flex md:justify-start justify-center">Schedule Name</h2>
+        <div className="flex justify-center">
+          <input
+            {...register("title")}
+            type="text"
+            className="mt-2 mb-7 bg-transparent border border-primary lg:w-full md:py-3 py-1 px-2 placeholder:lg:text-xl placeholder:text-base text-xl focus:outline-primary rounded-xl"
+            placeholder="Give your schedule a name"
+          />
+        </div>
 
         {/* Sun */}
         <div>
-          <div className="flex align-center gap-8 py-4">
-            <div className="w-28 flex gap-4 items-center">
+          <div className="lg:flex align-center gap-8 py-4">
+            <div className="w-28 flex lg:mx-1 mx-20 gap-4 items-center lg:mb-1 mb-3">
               <input
                 onChange={sunStatus}
                 type="checkbox"
                 checked={sun}
                 className="checkbox checkbox-primary"
               />
-              <span className="text-3xl">Sun</span>
+              <span className="lg:text-3xl text-2xl">Sun</span>
             </div>
 
             <div className="flex items-center justify-center gap-4 w-[26rem]">
               {sun === true ? (
                 <div className="flex gap-2 justify-center items-center">
-                  <div className="tooltip" data-tip="Start Time">
+                  <div className="tooltip lg:w-full w-5/12" data-tip="Start Time">
                     <input
                       {...register("sunStart")}
                       type="time"
                       defaultValue="10:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full max-w-xs lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
 
-                  <div className="border w-8 border-primary"></div>
+                  <div className="border lg:w-8 w-3 border-primary"></div>
 
-                  <div className="tooltip" data-tip="End Time">
+                  <div className="tooltip lg:w-full w-5/12" data-tip="End Time">
                     <input
                       {...register("sunEnd")}
                       type="time"
                       defaultValue="05:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
                 </div>
@@ -246,7 +248,7 @@ const Availability = () => {
                   {...register("sunEndd")}
                   type="text"
                   defaultValue="unavailable"
-                  className="text-3xl focus:outline-none"
+                  className="md:text-3xl text-xl focus:outline-none"
                   readOnly
                 />
               )}
@@ -256,37 +258,37 @@ const Availability = () => {
 
         {/* Mon */}
         <div>
-          <div className="flex align-center gap-8 py-4">
-            <div className="w-28 flex gap-4 items-center">
+          <div className="lg:flex align-center gap-8 py-4">
+            <div className="w-28 flex lg:mx-1 mx-20 gap-4 items-center lg:mb-1 mb-3">
               <input
                 onChange={monStatus}
                 type="checkbox"
                 checked={mon}
                 className="checkbox checkbox-primary"
               />
-              <span className="text-3xl">Mon</span>
+              <span className="lg:text-3xl text-2xl">Mon</span>
             </div>
 
             <div className="flex items-center justify-center gap-4 w-[26rem]">
               {mon === true ? (
                 <div className="flex gap-2 justify-center items-center">
-                  <div className="tooltip" data-tip="Start Time">
+                  <div className="tooltip lg:w-full w-5/12" data-tip="Start Time">
                     <input
                       {...register("monStart")}
                       type="time"
                       defaultValue="10:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full max-w-xs lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
 
-                  <div className="border w-8 border-primary"></div>
+                  <div className="border lg:w-8 w-3 border-primary"></div>
 
                   <div className="tooltip" data-tip="End Time">
                     <input
                       {...register("monEnd")}
                       type="time"
                       defaultValue="05:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full max-w-xs lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
                 </div>
@@ -295,7 +297,7 @@ const Availability = () => {
                   {...register("monEndd")}
                   type="text"
                   defaultValue="unavailable"
-                  className="text-3xl focus:outline-none"
+                  className="md:text-3xl text-xl focus:outline-none"
                   readOnly
                 />
               )}
@@ -305,37 +307,37 @@ const Availability = () => {
 
         {/* Tue */}
         <div>
-          <div className="flex align-center gap-8 py-4">
-            <div className="w-28 flex gap-4 items-center">
+          <div className="lg:flex align-center gap-8 py-4">
+            <div className="w-28 flex lg:mx-1 mx-20 gap-4 items-center lg:mb-1 mb-3">
               <input
                 onChange={tueStatus}
                 type="checkbox"
                 checked={tue}
                 className="checkbox checkbox-primary"
               />
-              <span className="text-3xl">Tue</span>
+              <span className="lg:text-3xl text-2xl">Tue</span>
             </div>
 
             <div className="flex items-center justify-center gap-4 w-[26rem]">
               {tue === true ? (
                 <div className="flex gap-2 justify-center items-center">
-                  <div className="tooltip" data-tip="Start Time">
+                  <div className="tooltip lg:w-full w-5/12" data-tip="Start Time">
                     <input
                       {...register("tueStart")}
                       type="time"
                       defaultValue="10:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full max-w-xs lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
 
-                  <div className="border w-8 border-primary"></div>
+                  <div className="border lg:w-8 w-3 border-primary"></div>
 
                   <div className="tooltip" data-tip="End Time">
                     <input
                       {...register("tueEnd")}
                       type="time"
                       defaultValue="05:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full max-w-xs lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
                 </div>
@@ -344,7 +346,7 @@ const Availability = () => {
                   {...register("tueEndd")}
                   type="text"
                   defaultValue="unavailable"
-                  className="text-3xl focus:outline-none"
+                  className="md:text-3xl text-xl focus:outline-none"
                   readOnly
                 />
               )}
@@ -354,37 +356,37 @@ const Availability = () => {
 
         {/* Wed */}
         <div>
-          <div className="flex align-center gap-8 py-4">
-            <div className="w-28 flex gap-4 items-center">
+          <div className="lg:flex align-center gap-8 py-4">
+            <div className="w-28 flex lg:mx-1 mx-20 gap-4 items-center lg:mb-1 mb-3">
               <input
                 onChange={wedStatus}
                 type="checkbox"
                 checked={wed}
                 className="checkbox checkbox-primary"
               />
-              <span className="text-3xl">Wed</span>
+              <span className="lg:text-3xl text-2xl">Wed</span>
             </div>
 
             <div className="flex items-center justify-center gap-4 w-[26rem]">
               {wed === true ? (
                 <div className="flex gap-2 justify-center items-center">
-                  <div className="tooltip" data-tip="Start Time">
+                  <div className="tooltip lg:w-full w-5/12" data-tip="Start Time">
                     <input
                       {...register("wedStart")}
                       type="time"
                       defaultValue="10:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
 
-                  <div className="border w-8 border-primary"></div>
+                  <div className="border lg:w-8 w-3 border-primary"></div>
 
                   <div className="tooltip" data-tip="End Time">
                     <input
                       {...register("wedEnd")}
                       type="time"
                       defaultValue="05:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
                 </div>
@@ -393,7 +395,7 @@ const Availability = () => {
                   {...register("wedEndd")}
                   type="text"
                   defaultValue="unavailable"
-                  className="text-3xl focus:outline-none"
+                  className="md:text-3xl text-xl focus:outline-none"
                   readOnly
                 />
               )}
@@ -403,30 +405,30 @@ const Availability = () => {
 
         {/* Thu */}
         <div>
-          <div className="flex align-center gap-8 py-4">
-            <div className="w-28 flex gap-4 items-center">
+          <div className="lg:flex align-center gap-8 py-4">
+            <div className="w-28 flex lg:mx-1 mx-20 gap-4 items-center lg:mb-1 mb-3">
               <input
                 onChange={thuStatus}
                 type="checkbox"
                 checked={thu}
                 className="checkbox checkbox-primary"
               />
-              <span className="text-3xl">Thu</span>
+              <span className="lg:text-3xl text-2xl">Thu</span>
             </div>
 
             <div className="flex items-center justify-center gap-4 w-[26rem]">
               {thu === true ? (
                 <div className="flex gap-2 justify-center items-center">
-                  <div className="tooltip" data-tip="Start Time">
+                  <div className="tooltip lg:w-full w-5/12" data-tip="Start Time">
                     <input
                       {...register("thuStart")}
                       type="time"
                       defaultValue="10:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
 
-                  <div className="border w-8 border-primary"></div>
+                  <div className="border lg:w-8 w-3 border-primary"></div>
 
                   <div className="tooltip" data-tip="End Time">
                     <input
@@ -434,7 +436,7 @@ const Availability = () => {
                       {...register("thuEnd")}
                       type="time"
                       defaultValue="05:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
                 </div>
@@ -443,7 +445,7 @@ const Availability = () => {
                   {...register("thuEndd")}
                   type="text"
                   defaultValue="unavailable"
-                  className="text-3xl focus:outline-none"
+                  className="md:text-3xl text-xl focus:outline-none"
                   readOnly
                 />
               )}
@@ -453,37 +455,37 @@ const Availability = () => {
 
         {/* Fri */}
         <div>
-          <div className="flex align-center gap-8 py-4">
-            <div className="w-28 flex gap-4 items-center">
+          <div className="lg:flex align-center gap-8 py-4">
+            <div className="w-28 flex lg:mx-1 mx-20 gap-4 items-center lg:mb-1 mb-3">
               <input
                 onChange={friStatus}
                 type="checkbox"
                 checked={fri}
                 className="checkbox checkbox-primary"
               />
-              <span className="text-3xl">Fri</span>
+              <span className="lg:text-3xl text-2xl">Fri</span>
             </div>
 
             <div className="flex items-center justify-center gap-4 w-[26rem]">
               {fri === true ? (
                 <div className="flex gap-2 justify-center items-center">
-                  <div className="tooltip" data-tip="Start Time">
+                  <div className="tooltip lg:w-full w-5/12" data-tip="Start Time">
                     <input
                       {...register("friStart")}
                       type="time"
                       defaultValue="10:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
 
-                  <div className="border w-8 border-primary"></div>
+                  <div className="border lg:w-8 w-3 border-primary"></div>
 
                   <div className="tooltip" data-tip="End Time">
                     <input
                       {...register("friEnd")}
                       type="time"
                       defaultValue="05:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
                 </div>
@@ -492,7 +494,7 @@ const Availability = () => {
                   {...register("friEndd")}
                   type="text"
                   defaultValue="unavailable"
-                  className="text-3xl focus:outline-none"
+                  className="md:text-3xl text-xl focus:outline-none"
                   readOnly
                 />
               )}
@@ -502,37 +504,37 @@ const Availability = () => {
 
         {/* Sat */}
         <div>
-          <div className="flex align-center gap-8 py-4">
-            <div className="w-28 flex gap-4 items-center">
+          <div className="lg:flex align-center gap-8 py-4">
+            <div className="w-28 flex lg:mx-1 mx-20 gap-4 items-center lg:mb-1 mb-3">
               <input
                 onChange={satStatus}
                 type="checkbox"
                 checked={sat}
                 className="checkbox checkbox-primary"
               />
-              <span className="text-3xl">Sat</span>
+              <span className="lg:text-3xl text-2xl">Sat</span>
             </div>
 
             <div className="flex items-center justify-center gap-4 w-[26rem]">
               {sat === true ? (
                 <div className="flex gap-2 justify-center items-center">
-                  <div className="tooltip" data-tip="Start Time">
+                  <div className="tooltip lg:w-full w-5/12" data-tip="Start Time">
                     <input
                       {...register("satStart")}
                       type="time"
                       defaultValue="10:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
 
-                  <div className="border w-8 border-primary"></div>
+                  <div className="border lg:w-8 w-3 border-primary"></div>
 
                   <div className="tooltip" data-tip="End Time">
                     <input
                       {...register("satEnd")}
                       type="time"
                       defaultValue="05:00"
-                      className="input input-bordered input-primary w-full max-w-xs text-2xl"
+                      className="input input-bordered input-primary w-full  lg:text-2xl text-lg lg:px-5 px-1"
                     />
                   </div>
                 </div>
@@ -541,7 +543,7 @@ const Availability = () => {
                   {...register("satEndd")}
                   type="text"
                   defaultValue="unavailable"
-                  className="text-3xl focus:outline-none"
+                  className="md:text-3xl text-xl focus:outline-none"
                   readOnly
                 />
               )}
@@ -550,7 +552,7 @@ const Availability = () => {
         </div>
 
         <div className="flex justify-center py-4 mt-5">
-          <button type="submit" className="btn px-10 text-lg">
+          <button type="submit" className="btn lg:px-10 px-4 text-base">
             Submit Save
           </button>
         </div>
