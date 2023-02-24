@@ -13,7 +13,6 @@ const Billing = () => {
       ).json();
       setData(data);
     };
-
     dataFetch();
   }, []);
 
