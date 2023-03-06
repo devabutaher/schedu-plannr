@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-hot-toast";
 
 const Contact = () => {
   const form:any = useRef();
@@ -16,7 +17,7 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          alert("Your message sent");
+          toast.success("Email sent Successfully");
         },
         (error) => {
           console.log(error.text);
@@ -108,7 +109,7 @@ const Contact = () => {
             <label className="block">
               <span className="mb-1">Message</span>
               <textarea
-                className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-primary  border py-3 px-2border py-3 px-2 mt-2"
+                className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-primary  border px-2border py-3 px-2 mt-2"
                 name="message"
                 required
               ></textarea>
