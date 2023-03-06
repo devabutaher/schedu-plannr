@@ -31,7 +31,7 @@ const MySchedule = () => {
   } = useQuery(["mySchedule"], () => {
     return axios
       .get(
-        `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
+        `http://localhost:5000/mySchedule?email=${user?.email}`
       )
       .then((res) => res.data);
   });
@@ -52,7 +52,7 @@ const MySchedule = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://scheduplannr-server.vercel.app/createSchedule/${e._id}`,
+          `http://localhost:5000/createSchedulee/${e._id}`,
           {
             method: "DELETE",
             headers: {
@@ -156,7 +156,7 @@ const MySchedule = () => {
                 </div>
                 <div className="flex flex-col gap-4">
                   <h1 className="text-3xl">{title}</h1>
-                  <h3 className="text-xl">{value?.toString().slice(0, 9)}</h3>
+                  <h3 className="text-xl">{value?.toString().slice(0, 10)}</h3>
                   <div className="flex flex-col gap-2">
                     <p className="">Host name: {name}</p>
                     <p className="">Organization: {organization}</p>
@@ -197,6 +197,7 @@ const MySchedule = () => {
                   email={email}
                   _id={_id}
                   refetch={refetch}
+                  ary={ary}
                 />
               }
             </div>

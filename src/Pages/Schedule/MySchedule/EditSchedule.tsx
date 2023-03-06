@@ -9,6 +9,7 @@ type UserSubmitForm = {
   title: string;
   location: string;
   link: string;
+  ary: string;
   description: string;
 };
 
@@ -23,6 +24,7 @@ const EditSchedule = ({
   email,
   _id,
   refetch,
+  ary,
 }: any) => {
   const {
     register,
@@ -38,6 +40,7 @@ const EditSchedule = ({
     const title = data.title;
     const location = data.location;
     const link = data.link;
+    const ary = data.ary;
     const description = data.description;
 
     const info = {
@@ -49,9 +52,11 @@ const EditSchedule = ({
       location,
       link,
       description,
+      ary,
     };
+    console.log(info);
 
-    fetch(`https://scheduplannr-server.vercel.app/createSchedule/${_id}`, {
+    fetch(`http://localhost:5000/createSchedulee/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -294,6 +299,29 @@ const EditSchedule = ({
               {errors.link && (
                 <p className="text-sm text-red-600 mt-2">
                   {errors.link.message}
+                </p>
+              )}
+            </div>
+
+            <div className="sm:col-span-2">
+              <label
+                htmlFor="link"
+                className="inline-block text-sm sm:text-base mb-2"
+              >
+                Schedule Time
+              </label>
+              <input
+                {...register("ary", {
+                  required: "Please Give A Schedule Time",
+                })}
+                defaultValue={ary}
+                id="ary"
+                name="ary"
+                className="w-full bg-transparent border focus:ring ring-sky-300 rounded outline-none transition duration-100 px-3 py-2"
+              />
+              {errors.ary && (
+                <p className="text-sm text-red-600 mt-2">
+                  {errors.ary.message}
                 </p>
               )}
             </div>

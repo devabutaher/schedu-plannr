@@ -18,12 +18,14 @@ type UserSubmitForm = {
 };
 
 const ScheduleInfo = ({ value, slot, slotPm }: any) => {
+
   const { user, setSlot, setSlotPm }: any = useContext(AuthContext);
   let ary: any;
-  if (slot || slotPm || (slot && slotPm)) {
+  if ((slot && slotPm) || slot || slotPm) {
     ary = slot.concat(slotPm);
-    console.log(ary);
+    // console.log(ary);
   }
+  // console.log(slot, slotPm);
   // console.log(value?.toString().slice(4, 15));
   const navigate = useNavigate();
   const {
@@ -71,34 +73,37 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
     const link = data.link;
     const description = data.description;
 
-    const info = {
-      name,
-      email,
-      phone,
-      organization,
-      title,
-      location,
-      link,
-      description,
-      value,
-      ary,
+    const info: any = {
+      name: name,
+      email: email,
+      phone: phone,
+      organization: organization,
+      title: title,
+      location: location,
+      link: link,
+      description: description,
+      value: value,
+      ary: ary,
+      // slot: slot,
+      // slotPm: slotPm
     };
-
-    fetch("https://scheduplannr-server.vercel.app/createSchedule", {
+    console.log(info);
+    fetch("http://localhost:5000/createSchedulee", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        // authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(info),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
+          setSlot([]);
+          setSlotPm([]);
           toast.success("Schedule Created Successfully");
           navigate("/dashboard/mySchedule");
-          setSlot(null);
-          setSlotPm(null);
+
 
         } else {
           toast.error("Schedule Created Failed");

@@ -11,8 +11,7 @@ const Schedule = () => {
 
     //date value
     const [value, onChange] = useState(new Date());
-    value && value.toString().slice(0, 15);
-
+    // value && value.toString().slice(0, 17);
 
     //am & pm slots
     const { slot, slotPm }: any = useContext(AuthContext);
