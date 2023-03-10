@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useContext, useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from "react-hot-toast";
 import {
   AiOutlineCopy,
@@ -16,12 +17,10 @@ import { AuthContext } from "../../../components/Contexts/AuthProvider/AuthProvi
 import useTitle from "../../../hooks/useTitle/useTitle";
 import Loading from "../../../Shared/Loading/Loading";
 import EditSchedule from "./EditSchedule";
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const MySchedule = () => {
-
-  const { user }: any = useContext(AuthContext)
-  const [checked, setChecked] = useState(true)
+  const { user }: any = useContext(AuthContext);
+  const [checked, setChecked] = useState(true);
   useTitle("My Schedule");
 
   const {
@@ -31,7 +30,7 @@ const MySchedule = () => {
   } = useQuery(["mySchedule"], () => {
     return axios
       .get(
-        `http://localhost:5000/mySchedule?email=${user?.email}`
+        `https://scheduplannr-server.vercel.app/mySchedule?email=${user?.email}`
       )
       .then((res) => res.data);
   });
@@ -52,7 +51,7 @@ const MySchedule = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/createSchedulee/${e._id}`,
+          `https://scheduplannr-server.vercel.app/createSchedulee/${e._id}`,
           {
             method: "DELETE",
             headers: {
@@ -72,17 +71,17 @@ const MySchedule = () => {
   };
 
   const handleChecked = (e: any) => {
-    setChecked(e.target.checked)
-  }
+    setChecked(e.target.checked);
+  };
 
   const handleCopy = () => {
     toast.success("Schedule Link Copied");
-  }
+  };
 
   return (
     <div className="pl-3 md:pl-48 lg:pl-0">
       <h1 className="text-4xl font-bold text-center uppercase my-5">
-      Sched<span className="text-primary">ules</span>
+        Sched<span className="text-primary">ules</span>
       </h1>
       <Link to={"/schedule/fifteen"}>
         <div className="flex justify-end">
@@ -115,7 +114,11 @@ const MySchedule = () => {
           } = e;
           return (
             <div key={_id}>
-              <div className={`w-80 border-t-8 ${checked ? "border-primary" : "border-gray-500"} flex flex-col gap-6 p-4 rounded-lg shadow-xl`}>
+              <div
+                className={`w-80 border-t-8 ${
+                  checked ? "border-primary" : "border-gray-500"
+                } flex flex-col gap-6 p-4 rounded-lg shadow-xl`}
+              >
                 <div className="flex justify-center gap-4">
                   <div className="form-control w-52">
                     <label className="cursor-pointer label">
@@ -149,10 +152,11 @@ const MySchedule = () => {
                   <button className="tooltip hover:text-black" data-tip="Share">
                     <AiOutlineShareAlt size={"2rem"} />
                   </button>
-                  <CopyToClipboard
-                    onCopy={handleCopy}
-                    text={link}>
-                    <button className="tooltip hover:text-black" data-tip="Copy">
+                  <CopyToClipboard onCopy={handleCopy} text={link}>
+                    <button
+                      className="tooltip hover:text-black"
+                      data-tip="Copy"
+                    >
                       <AiOutlineCopy size={"2rem"} />
                     </button>
                   </CopyToClipboard>
@@ -164,8 +168,11 @@ const MySchedule = () => {
                     <p className="">Host name: {name}</p>
                     <p className="">Organization: {organization}</p>
                     <p className="">Location: {location}</p>
-                    {ary && <p className=""><b>Meeting time:</b> {ary.join(",")}</p>}
-
+                    {ary && (
+                      <p className="">
+                        <b>Meeting time:</b> {ary.join(",")}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
@@ -176,9 +183,7 @@ const MySchedule = () => {
                   >
                     /Schedule Link
                   </a>
-                  <CopyToClipboard
-                    onCopy={handleCopy}
-                    text={link}>
+                  <CopyToClipboard onCopy={handleCopy} text={link}>
                     <div className="flex gap-2 items-center p-2 border rounded-lg border-primary hover:bg-primary hover:text-white cursor-pointer text-sm">
                       <FiCopy size={"1rem"} />
                       <span>Copy Link</span>

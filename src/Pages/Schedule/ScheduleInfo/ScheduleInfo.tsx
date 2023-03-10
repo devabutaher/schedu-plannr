@@ -18,7 +18,6 @@ type UserSubmitForm = {
 };
 
 const ScheduleInfo = ({ value, slot, slotPm }: any) => {
-
   const { user, setSlot, setSlotPm }: any = useContext(AuthContext);
   let ary: any;
   if ((slot && slotPm) || slot || slotPm) {
@@ -63,7 +62,6 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
   } = useForm<UserSubmitForm>();
 
   const handleInfo = (data: UserSubmitForm) => {
-
     const name = data.name;
     const email = data.email;
     const phone = data.phone;
@@ -88,7 +86,7 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
       // slotPm: slotPm
     };
     console.log(info);
-    fetch("http://localhost:5000/createSchedulee", {
+    fetch("https://scheduplannr-server.vercel.app/createSchedulee", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -103,8 +101,6 @@ const ScheduleInfo = ({ value, slot, slotPm }: any) => {
           setSlotPm([]);
           toast.success("Schedule Created Successfully");
           navigate("/dashboard/mySchedule");
-
-
         } else {
           toast.error("Schedule Created Failed");
         }
