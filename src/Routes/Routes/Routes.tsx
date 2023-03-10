@@ -56,31 +56,31 @@ export const router = createBrowserRouter([
       },
       {
         path: "/resources",
-        element: <Resources/>
+        element: <Resources />
       },
       {
         path: "/integrationDetails",
-        element: <IntegrationDetails/>
+        element: <IntegrationDetails />
       },
       {
         path: "/zoom",
-        element: <Zoom/>
+        element: <Zoom />
       },
       {
         path: "/meet",
-        element: <Meet/>
+        element: <Meet />
       },
       {
         path: "/msTeam",
-        element: <MsTeam/>
+        element: <MsTeam />
       },
       {
         path: "/scheduleMeetingDetails",
-        element: <ScheduleMeetingDetails/>
+        element: <ScheduleMeetingDetails />
       },
       {
         path: "/securityDetails",
-        element: <SecurityDetails/>
+        element: <SecurityDetails />
       },
       {
         path: "blogs/blogPost/:id",
@@ -102,7 +102,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/schedule",
-    element: <Schedule></Schedule>,
+    element: <PrivateRoute><Schedule></Schedule></PrivateRoute>,
     children: [
       {
         path: "/schedule/fifteen",
@@ -161,7 +161,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/availability',
-        element: <Availability/>
+        element: <Availability />
       },
       {
 
