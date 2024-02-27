@@ -6,7 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    // shadcn/ui config
+    // shadcn/ui
     "baseUrl": ".",
     "paths": {
       "@/*": [
