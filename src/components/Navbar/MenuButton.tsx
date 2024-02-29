@@ -1,9 +1,10 @@
 import { MotionConfig, motion } from "framer-motion";
-import { useState } from "react";
 
-const MenuButton = () => {
-  const [active, setActive] = useState(false);
+interface MenuProps {
+  active: boolean;
+}
 
+const MenuButton = ({ active }: MenuProps) => {
   return (
     <MotionConfig
       transition={{
@@ -14,7 +15,6 @@ const MenuButton = () => {
       <motion.button
         initial={false}
         animate={active ? "open" : "closed"}
-        onClick={() => setActive((pv) => !pv)}
         className="relative w-16 h-16 transition-colors rounded-full bg-primary/0 hover:bg-primary/20"
       >
         <motion.span
