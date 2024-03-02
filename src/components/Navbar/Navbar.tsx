@@ -10,7 +10,7 @@ const Navbar = () => {
   const [hover, setHover] = useState(tabs[0]);
 
   return (
-    <nav className="flex items-center justify-between gap-4 px-4 mx-auto my-4 max-w-screen-2xl">
+    <nav className="flex items-center justify-between gap-4 mx-auto my-4 ">
       {/* brand */}
       <div className="w-[14rem]">
         <img src="/logo.png" alt="logo" className="w-full" />
