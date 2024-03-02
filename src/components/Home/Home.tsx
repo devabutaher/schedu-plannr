@@ -1,8 +1,8 @@
-import Hero from "./Hero";
+import Hero from "./Hero/Hero";
 
 const Home = () => {
   return (
-    <div className="h-[100rem]">
+    <div className="my-20 space-y-20">
       <Hero />
     </div>
   );
