@@ -20,9 +20,9 @@ const CalendarComponent = () => {
   const [range, setRange] = useState<DateRange | undefined>(defaultSelected);
 
   return (
-    <div className="right-0 inline-block p-2 lg:absolute -top-10 rounded-2xl bg-secondary">
-      <div className="flex flex-col-reverse gap-4 border-2 lg:divide-x-2 lg:flex-row divide-primary/20 rounded-2xl border-primary lg:min-h-[30rem]">
-        <div className="lg:w-[20rem] space-y-4 p-6 border-t-2 border-primary/20 lg:border-none">
+    <div className="inline-block p-2 rounded-2xl bg-secondary max-w-[55rem] max-[1290px]:mx-auto">
+      <div className="grid grid-cols-1 gap-4 border-2 md:grid-cols-3 rounded-2xl border-primary">
+        <div className="p-6 space-y-4 max-md:order-1">
           {/* user */}
           <div className="space-y-1">
             <Avatar>
@@ -60,25 +60,24 @@ const CalendarComponent = () => {
           </div>
         </div>
 
-        <div className="p-2">
+        <div className="col-span-2 p-2 pb-4 border-b-2 md:border-b-none md:border-l-2 border-l-none border-primary/20">
           <Calendar
             mode="range"
             selected={range}
             onSelect={setRange}
             defaultMonth={pastMonth}
-            className="p-4 border-2 lg:p-6 rounded-2xl bg-background"
+            className="p-4 border-2 lg:p-6 rounded-2xl bg-background "
             classNames={{
+              months:
+                "w-full h-full min-w-[16rem] min-[1290px]:min-h-[22rem] space-y-4",
+              table: "w-full border-collapse",
               nav_button: cn(
                 buttonVariants({ variant: "outline" }),
-                "w-8 h-8 lg:h-10 lg:w-10 bg-transparent p-0 opacity-50 hover:opacity-100"
+                "w-6 h-6 lg:h-8 lg:w-8 bg-transparent p-0 opacity-50 hover:opacity-100"
               ),
-              head_row: "flex justify-between lg:px-2 my-2 ",
-              cell: "w-[1.5rem] h-[1.5rem] lg:w-[3rem] lg:h-[3rem] text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
-              day: cn(
-                buttonVariants({ variant: "ghost" }),
-                "w-[1.5rem] h-[1.5rem] lg:w-[3rem] lg:h-[3rem] p-0 font-normal aria-selected:opacity-100"
-              ),
-              row: "flex gap-4 lg:gap-6 w-full mt-2",
+              head_row:
+                "grid grid-cols-7 place-items-center gap-4 lg:gap-6 mt-2",
+              row: "grid grid-cols-7 place-items-center gap-4 lg:gap-6 mt-2",
             }}
           />
         </div>

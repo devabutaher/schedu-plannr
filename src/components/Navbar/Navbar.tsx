@@ -33,7 +33,7 @@ const Navbar = () => {
       {/* login button */}
       <div className="hidden w-[14rem] lg:flex justify-end items-center gap-4">
         <ToggleTheme />
-        <button className="px-6 py-2 text-sm font-semibold text-white uppercase rounded-full bg-sky-500 xl:text-base">
+        <button className="px-6 py-2 text-sm font-semibold text-white uppercase transition-all rounded-full bg-sky-500 xl:text-base hover:rounded-xl">
           Login
         </button>
       </div>

@@ -11,7 +11,7 @@ const ToggleTheme = () => {
   );
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 50) {
+    if (latest > 100) {
       setScroll(true);
     } else {
       setScroll(false);
@@ -21,21 +21,23 @@ const ToggleTheme = () => {
   return (
     <m.div
       variants={{
-        scrollBottom: { position: "fixed", right: 150, rotate: 360 },
+        scrollBottom: {
+          display: "inline-block",
+        },
         scrollTop: {
           position: "fixed",
-          left: 30,
-          bottom: 30,
+          zIndex: 999,
+          left: 25,
+          bottom: 25,
           rotate: 360,
         },
       }}
       animate={scroll ? "scrollTop" : "scrollBottom"}
-      transition={{ duration: 1, ease: "easeInOut" }}
     >
-      <div className={`flex items-center w-10 p-2 border rounded-full`}>
+      <div className="flex items-center w-10 p-2 border rounded-full hover:bg-secondary">
         <div
           onClick={() => setTheme("dark")}
-          className="absolute transition-all scale-100 rotate-0 cursor-pointer dark:rotate-180 dark:scale-0 "
+          className="absolute transition-all scale-100 rotate-0 cursor-pointer dark:rotate-180 dark:scale-0"
         >
           <Moon size={"1.4rem"} />
         </div>
