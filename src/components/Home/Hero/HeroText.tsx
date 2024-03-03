@@ -1,21 +1,27 @@
+import { useTheme } from "@/hooks/useTheme";
 import { useEffect } from "react";
-import BorderedText from "./BorderedText";
 
 const HeroText = () => {
   return (
     <div className="cursor-default">
       <h1 className="-tracking-widest">
-        <BubbleText title={"Scheduling"} />
-      </h1>
-      <h1 className="-tracking-widest">
-        <BubbleText title={"infrastructure for"} />
-        <BorderedText />
+        <BubbleText title="infrastructure for" style="text-primary" />
+        <BubbleText
+          title="everyone."
+          style="text-white dark:text-black hero-text ml-4"
+        />
       </h1>
     </div>
   );
 };
 
-const BubbleText = ({ title }: { title: string }) => {
+export const BubbleText = ({
+  title,
+  style,
+}: {
+  title: string;
+  style: string;
+}) => {
   useEffect(() => {
     const spans = document.querySelectorAll(
       ".hover-text span"
@@ -54,19 +60,24 @@ const BubbleText = ({ title }: { title: string }) => {
   }, []);
 
   return (
-    <span className="text-5xl antialiased font-bold lg:uppercase lg:text-8xl text-primary hover-text">
+    <span
+      className={`text-4xl min-[500px]:text-5xl sm:text-6xl md:text-7xl lg:text-8xl antialiased font-bold uppercase lg:text-[5.8rem] hover-text ${style}`}
+    >
       <Text>{`${title}`}</Text>
     </span>
   );
 };
 
 const Text = ({ children }: { children: string }) => {
+  const { theme } = useTheme();
+
   return (
     <>
       {children.split("").map((child, idx) => (
         <span
           style={{
             transition: "0.35s font-weight, 0.35s color",
+            textShadow: `2px 2px 0px ${theme === "light" ? "black" : "white"}`,
           }}
           key={idx}
         >
