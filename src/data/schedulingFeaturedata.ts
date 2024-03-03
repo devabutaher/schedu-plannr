@@ -1,0 +1,16 @@
+export const schedulingFeatureData = [
+  "Event",
+  "Calendar",
+  "Time Zone ",
+  "Availability",
+  "Color Coding",
+  "Tagging",
+  "Sharing",
+  "Collaboration",
+  "Time Tracking",
+  "Reminders",
+  "Notifications",
+  "Invitations",
+  "Customization",
+  "Accessibility",
+];

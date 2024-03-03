@@ -1,9 +1,11 @@
+import FeatureScroll from "./FeatureScroll";
 import Hero from "./Hero/Hero";
 
 const Home = () => {
   return (
-    <div className="my-20 space-y-20">
+    <div className="my-10 space-y-10">
       <Hero />
+      <FeatureScroll />
     </div>
   );
 };
