@@ -34,7 +34,7 @@ const HeroTextSide = () => {
 const TextWithButton = () => {
   return (
     <div className="space-y-6">
-      <p className="text-lg sm:text-xl antialiased min-[1290px]:leading-8 md:w-[30rem]">
+      <p className="text-lg sm:text-xl antialiased min-[1290px]:leading-8 sm:w-[30rem]">
         Meet{" "}
         <span className="font-medium">
           Schedu<span className="text-sky-500">Plannr</span>
