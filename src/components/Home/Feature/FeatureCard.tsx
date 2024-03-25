@@ -61,10 +61,10 @@ const TiltCard = () => {
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute bg-white shadow-xl inset-4 rounded-xl"
+        className="absolute shadow-xl bg-slate-100 dark:bg-slate-900 inset-4 rounded-xl"
       >
         <div className="border-b-4 border-dashed h-[22rem] sm:h-[25rem] border-sky-500"></div>
-        <div className="flex flex-col gap-4 p-4 text-slate-900">
+        <div className="flex flex-col gap-4 p-4 text-slate-900 dark:text-slate-100">
           <h1 className="text-3xl font-medium sm:text-4xl">
             Connect all your calendars
           </h1>

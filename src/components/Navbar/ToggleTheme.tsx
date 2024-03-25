@@ -34,7 +34,7 @@ const ToggleTheme = () => {
       }}
       animate={scroll ? "scrollTop" : "scrollBottom"}
     >
-      <div className="flex items-center w-10 p-2 border rounded-full hover:bg-secondary">
+      <div className="flex items-center w-10 p-2 border rounded-full bg-secondary">
         <div
           onClick={() => setTheme("dark")}
           className="absolute transition-all scale-100 rotate-0 cursor-pointer dark:rotate-180 dark:scale-0"
