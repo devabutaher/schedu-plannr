@@ -1,3 +1,4 @@
+import Content from "./Content/Content";
 import Feature from "./Feature/Feature";
 import FeatureScroll from "./FeatureScroll";
 import Hero from "./Hero/Hero";
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <FeatureScroll />
       <Feature />
+      <Content />
     </div>
   );
 };

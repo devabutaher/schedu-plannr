@@ -4,9 +4,13 @@ import {
   policiesAndLegal,
   specialProgramsAndNotifications,
 } from "@/data/footerData";
-import { Star } from "lucide-react";
-import { FaDiscord, FaGithub, FaYoutube } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaGithub,
+  FaLinkedin,
+  FaStar,
+  FaTwitter,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 
@@ -24,11 +28,11 @@ const Footer = () => {
         </p>
 
         <div className="flex flex-wrap items-center gap-2">
-          <Icon title="Start" icon={<Star size={14} />} />
-          <Icon icon={<FaGithub size={14} />} />
-          <Icon icon={<FaXTwitter size={14} />} />
-          <Icon icon={<FaDiscord size={14} />} />
-          <Icon icon={<FaYoutube size={14} />} />
+          <Icon title="Star" icon={<FaStar size={14} />} />
+          <Icon title="Github" icon={<FaGithub size={14} />} />
+          <Icon title="LinkedIn" icon={<FaLinkedin size={14} />} />
+          <Icon title="Facebook" icon={<FaFacebook size={14} />} />
+          <Icon title="Twitter" icon={<FaTwitter size={14} />} />
         </div>
 
         <p className="text-slate-500">
