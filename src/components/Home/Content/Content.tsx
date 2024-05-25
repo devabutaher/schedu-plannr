@@ -4,7 +4,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 const Content = () => {
   return (
-    <div className="bg-white">
+    <div>
       <TextParallaxContent
         imgUrl="/src/assets/images/content-1.png"
         subheading="Create Events"
@@ -96,7 +96,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string }) => {
       className="sticky z-0 overflow-hidden rounded-3xl"
     >
       <motion.div
-        className="absolute inset-0 bg-neutral-950/70"
+        className="absolute inset-0 bg-slate-950/70"
         style={{
           opacity,
         }}
@@ -148,8 +148,10 @@ const TextContent = ({
   <div className="grid max-w-5xl grid-cols-1 gap-8 px-4 pt-12 pb-24 mx-auto md:grid-cols-12">
     <h2 className="col-span-1 text-3xl font-bold md:col-span-4">{title}</h2>
     <div className="col-span-1 md:col-span-8">
-      <p className="mb-8 text-xl text-neutral-600 md:text-2xl">{content}</p>
-      <button className="w-full py-4 text-xl text-white transition-colors rounded bg-neutral-900 px-9 hover:bg-neutral-700 md:w-fit">
+      <p className="mb-8 text-xl text-slate-600 dark:text-slate-400 md:text-2xl">
+        {content}
+      </p>
+      <button className="w-full py-4 text-xl transition-colors rounded bg-slate-900 dark:bg-slate-100 px-9 hover:bg-slate-700 md:w-fit text-slate-100 dark:text-slate-900">
         Learn more <FiArrowUpRight className="inline" />
       </button>
     </div>

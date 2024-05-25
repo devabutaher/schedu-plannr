@@ -15,23 +15,23 @@ const MenuButton = ({ active }: MenuProps) => {
       <motion.button
         initial={false}
         animate={active ? "open" : "closed"}
-        className="relative w-16 h-16 transition-colors rounded-full bg-primary/0 hover:bg-primary/20"
+        className="relative transition-colors rounded-full w-14 h-14 bg-primary/0 hover:bg-primary/20"
       >
         <motion.span
           variants={VARIANTS.top}
-          className="absolute w-10 h-1 bg-primary"
+          className="absolute w-8 h-1 bg-primary"
           style={{ y: "-50%", left: "50%", x: "-50%", top: "35%" }}
         />
         <motion.span
           variants={VARIANTS.middle}
-          className="absolute w-10 h-1 bg-primary"
+          className="absolute w-8 h-1 bg-primary"
           style={{ left: "50%", x: "-50%", top: "50%", y: "-50%" }}
         />
         <motion.span
           variants={VARIANTS.bottom}
           className="absolute w-5 h-1 bg-primary"
           style={{
-            x: "-50%",
+            x: "-70%",
             y: "50%",
             bottom: "35%",
             left: "calc(50% + 10px)",
@@ -64,7 +64,7 @@ const VARIANTS = {
   bottom: {
     open: {
       rotate: ["0deg", "0deg", "45deg"],
-      bottom: ["35%", "50%", "50%"],
+      bottom: ["35%", "50%", "55%"],
       left: "50%",
     },
     closed: {

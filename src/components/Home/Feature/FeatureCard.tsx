@@ -2,11 +2,7 @@ import { motion } from "framer-motion";
 import React, { useRef, useState } from "react";
 
 const FeatureCard = () => {
-  return (
-    <div className="">
-      <TiltCard />
-    </div>
-  );
+  return <TiltCard />;
 };
 
 const ROTATION_RANGE = 32.5;
