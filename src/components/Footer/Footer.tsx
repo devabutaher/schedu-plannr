@@ -16,7 +16,7 @@ import { Button } from "../ui/button";
 
 const Footer = () => {
   return (
-    <div className="p-8 my-8 space-y-8 border-2 rounded-2xl border-primary">
+    <div className="p-8 my-8 space-y-8 border-2 rounded-2xl border-primary/50">
       <div className="space-y-4 w-full max-w-[20rem]">
         <div className="w-[14rem]">
           <img src="/logo.png" alt="logo" className="w-full" />

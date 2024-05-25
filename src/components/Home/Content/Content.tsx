@@ -43,7 +43,7 @@ const Content = () => {
 
 export default Content;
 
-const IMG_PADDING = 12;
+const IMG_PADDING = 0;
 
 const TextParallaxContent = ({
   imgUrl,

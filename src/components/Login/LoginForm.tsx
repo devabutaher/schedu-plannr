@@ -55,10 +55,10 @@ export default function LoginForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col justify-between w-full"
+        className="flex flex-col justify-between w-full gap-8"
       >
         <div className="flex items-center justify-center gap-4">
-          <h1 className="text-3xl antialiased font-semibold text-slate-200 lg:text-5xl">
+          <h1 className="text-3xl antialiased font-semibold text-slate-800 dark:text-slate-200 lg:text-5xl">
             Welcome back
           </h1>
           <div className="rounded-full size-6 lg:size-8 bg-sky-500" />
@@ -78,7 +78,7 @@ export default function LoginForm() {
                     {...field}
                     id="email"
                     placeholder="Email"
-                    className="px-4 py-6 text-lg"
+                    className="px-4 py-6 text-lg border-none"
                   />
                 </FormControl>
                 <FormMessage className="text-red-500" />
@@ -98,7 +98,7 @@ export default function LoginForm() {
                     {...field}
                     id="password"
                     placeholder="Password"
-                    className="px-4 py-6 text-lg"
+                    className="px-4 py-6 text-lg border-none"
                   />
                 </FormControl>
                 <FormMessage className="text-red-500" />
@@ -112,7 +112,7 @@ export default function LoginForm() {
           </div>
         </div>
 
-        <p className="text-xl antialiased font-semibold text-center">
+        <p className="text-lg antialiased font-semibold text-center sm:text-xl">
           Don't have an account?{" "}
           <Link to={"/register"} className="text-sky-500">
             Sign Up
