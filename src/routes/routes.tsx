@@ -1,5 +1,6 @@
+import Login from "@/components/Auth/Login/Login";
+import Register from "@/components/Auth/Register/Register";
 import Home from "@/components/Home/Home";
-import Login from "@/components/Login/Login";
 import MainLayout from "@/layouts/MainLayout";
 
 export const routes = [
@@ -14,6 +15,10 @@ export const routes = [
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
