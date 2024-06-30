@@ -2,6 +2,7 @@ import Content from "./Content/Content";
 import Feature from "./Feature/Feature";
 import FeatureScroll from "./FeatureScroll";
 import Hero from "./Hero/Hero";
+import { Review } from "./Review";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <FeatureScroll />
       <Feature />
       <Content />
+      <Review />
     </div>
   );
 };
